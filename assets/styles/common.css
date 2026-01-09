@@ -5,56 +5,59 @@
 }
 
 @font-face {
-  font-family: 'Outfit';
-  src: url('../../../fonts/Outfit/static/Outfit-Thin.ttf') format('truetype');
+  font-family: "Outfit";
+  src: url("../../../fonts/Outfit/static/Outfit-Thin.ttf") format("truetype");
   font-weight: 100;
 }
 
 @font-face {
-  font-family: 'Outfit';
-  src: url('../../../fonts/Outfit/static/Outfit-ExtraLight.ttf') format('truetype');
+  font-family: "Outfit";
+  src: url("../../../fonts/Outfit/static/Outfit-ExtraLight.ttf")
+    format("truetype");
   font-weight: 200;
 }
 
 @font-face {
-  font-family: 'Outfit';
-  src: url('../../../fonts/Outfit/static/Outfit-Light.ttf') format('truetype');
+  font-family: "Outfit";
+  src: url("../../../fonts/Outfit/static/Outfit-Light.ttf") format("truetype");
   font-weight: 300;
 }
 
 @font-face {
-  font-family: 'Outfit';
-  src: url('../../../fonts/Outfit/static/Outfit-Regular.ttf') format('truetype');
+  font-family: "Outfit";
+  src: url("../../../fonts/Outfit/static/Outfit-Regular.ttf") format("truetype");
   font-weight: 400;
 }
 
 @font-face {
-  font-family: 'Outfit';
-  src: url('../../../fonts/Outfit/static/Outfit-Medium.ttf') format('truetype');
+  font-family: "Outfit";
+  src: url("../../../fonts/Outfit/static/Outfit-Medium.ttf") format("truetype");
   font-weight: 500;
 }
 
 @font-face {
-  font-family: 'Outfit';
-  src: url('../../../fonts/Outfit/static/Outfit-SemiBold.ttf') format('truetype');
+  font-family: "Outfit";
+  src: url("../../../fonts/Outfit/static/Outfit-SemiBold.ttf")
+    format("truetype");
   font-weight: 600;
 }
 
 @font-face {
-  font-family: 'Outfit';
-  src: url('../../../fonts/Outfit/static/Outfit-Bold.ttf') format('truetype');
+  font-family: "Outfit";
+  src: url("../../../fonts/Outfit/static/Outfit-Bold.ttf") format("truetype");
   font-weight: 700;
 }
 
 @font-face {
-  font-family: 'Outfit';
-  src: url('../../../fonts/Outfit/static/Outfit-ExtraBold.ttf') format('truetype');
+  font-family: "Outfit";
+  src: url("../../../fonts/Outfit/static/Outfit-ExtraBold.ttf")
+    format("truetype");
   font-weight: 800;
 }
 
 @font-face {
-  font-family: 'Outfit';
-  src: url('../../../fonts/Outfit/static/Outfit-Black.ttf') format('truetype');
+  font-family: "Outfit";
+  src: url("../../../fonts/Outfit/static/Outfit-Black.ttf") format("truetype");
   font-weight: 900;
 }
 
@@ -63,6 +66,10 @@
   --text-white: #ffffff;
   --primary-light: #7c3aed;
   --secondary: #3b82f6;
+  --primary: #0000ff; /* Main primary */
+  --primary-light: #8080ff; /* Light version of primary */
+  --secondary: #4d4dff; /* Secondary blue */
+
   --text-primary: #1e293b;
   --text-secondary: #64748b;
   --text-tertiary: #94a3b8;
@@ -81,10 +88,12 @@ body {
   font-family: var(--outfit) !important;
   color: var(--text-primary);
   min-height: 100vh;
-  background: linear-gradient(90deg,
-      var(--grad-start) 10%,
-      var(--grad-mid) 50%,
-      var(--grad-end) 100%);
+  background: linear-gradient(
+    90deg,
+    var(--grad-start) 10%,
+    var(--grad-mid) 50%,
+    var(--grad-end) 100%
+  );
   overflow-x: hidden;
 }
 
