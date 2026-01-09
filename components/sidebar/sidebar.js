@@ -12,17 +12,17 @@ class Sidebar {
   async init() {
     // Load sidebar HTML
     await this.loadSidebar();
-    
+
     // Initialize references
     this.sidebar = document.getElementById('sidebar');
     this.mainContent = document.getElementById('mainContent');
     this.toggleBtn = document.getElementById('toggleBtn');
     this.mobileMenuToggle = document.getElementById('mobileMenuToggle');
-    
+
     if (this.toggleBtn && this.toggleBtn.querySelector('i')) {
       this.toggleIcon = this.toggleBtn.querySelector('i');
     }
-    
+
     if (this.mobileMenuToggle && this.mobileMenuToggle.querySelector('i')) {
       this.mobileToggleIcon = this.mobileMenuToggle.querySelector('i');
     }
@@ -31,7 +31,7 @@ class Sidebar {
     this.setupEventListeners();
     this.handleResize();
     this.updateToggleIcon();
-    
+
     // Listen for page changes to update active state
     document.addEventListener('pagechange', (e) => {
       this.updateActiveNavItem(e.detail.page);
@@ -44,21 +44,21 @@ class Sidebar {
     try {
       // Use the correct relative path
       const response = await fetch('components/sidebar/sidebar.html');
-      
+
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
-      
+
       const sidebarHTML = await response.text();
       document.getElementById('sidebar-container').innerHTML = sidebarHTML;
-      
+
       // Re-initialize references after loading HTML
       this.sidebar = document.getElementById('sidebar');
       this.toggleBtn = document.getElementById('toggleBtn');
-      
+
     } catch (error) {
       console.error('Error loading sidebar:', error);
-      
+
       // Fallback: Create sidebar directly if fetch fails
       this.createSidebarFallback();
     }
@@ -160,7 +160,7 @@ class Sidebar {
         </div>
       </aside>
     `;
-    
+
     document.getElementById('sidebar-container').innerHTML = fallbackHTML;
   }
 
@@ -189,14 +189,19 @@ class Sidebar {
         }
       });
 
+      const upgradePlanBtn = document.getElementById('upgradePlanBtn');
+      if (upgradePlanBtn) {
+        upgradePlanBtn.addEventListener('click', () => this.navigateTo('plan'));
+      }
+
       // Close sidebar when clicking outside on mobile
       document.addEventListener('click', (e) => {
-        if (this.isMobile() && 
-            this.sidebar && 
-            !this.sidebar.contains(e.target) && 
-            this.mobileMenuToggle && 
-            !this.mobileMenuToggle.contains(e.target) && 
-            this.sidebar.classList.contains('mobile-open')) {
+        if (this.isMobile() &&
+          this.sidebar &&
+          !this.sidebar.contains(e.target) &&
+          this.mobileMenuToggle &&
+          !this.mobileMenuToggle.contains(e.target) &&
+          this.sidebar.classList.contains('mobile-open')) {
           this.closeMobileSidebar();
         }
       });
@@ -212,7 +217,7 @@ class Sidebar {
       // Try to get toggle icon again
       this.toggleIcon = document.querySelector('#toggleBtn i');
     }
-    
+
     if (this.toggleIcon && this.sidebar) {
       if (this.sidebar.classList.contains('collapsed')) {
         this.toggleIcon.setAttribute('data-feather', 'chevrons-right');
@@ -228,7 +233,7 @@ class Sidebar {
       this.sidebar = document.getElementById('sidebar');
       this.mainContent = document.getElementById('mainContent');
     }
-    
+
     if (this.isMobile()) {
       this.sidebar.classList.toggle('mobile-open');
       if (!this.mobileToggleIcon) {
@@ -261,7 +266,7 @@ class Sidebar {
       this.sidebar = document.getElementById('sidebar');
       this.mainContent = document.getElementById('mainContent');
     }
-    
+
     if (this.isMobile()) {
       this.sidebar.classList.add('collapsed');
       this.sidebar.classList.remove('mobile-open');
@@ -286,8 +291,8 @@ class Sidebar {
 
   navigateTo(page) {
     // Dispatch custom event for page change
-    const event = new CustomEvent('pagechange', { 
-      detail: { page: page } 
+    const event = new CustomEvent('pagechange', {
+      detail: { page: page }
     });
     document.dispatchEvent(event);
 
