@@ -7,6 +7,7 @@ class PageLoader {
       starred: "pages/starred.html",
       bin: "pages/bin.html",
       storage: "pages/storage.html",
+      plan: "pages/plan.html",
     };
 
     this.init();
