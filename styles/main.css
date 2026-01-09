@@ -1,0 +1,393 @@
+/* Sidebar Styles */
+.sidebar {
+  width: var(--sidebar-width-expanded);
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  overflow-x: hidden;
+  z-index: 100;
+  background: transparent;
+  backdrop-filter: blur(10px);
+  transition: width 0.3s ease;
+}
+
+.sidebar.collapsed {
+  width: var(--sidebar-width-collapsed);
+  padding: 12px 6px;
+}
+
+/* Logo container with toggle button */
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+  position: relative;
+  min-height: 40px;
+  padding: 4px 0;
+}
+
+.logo-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+}
+
+.logo-text {
+  font-weight: 700;
+  font-size: 15px;
+  transition: opacity 0.2s;
+  white-space: nowrap;
+  opacity: 1;
+}
+
+.sidebar.collapsed .logo-text {
+  opacity: 0;
+  display: none;
+}
+
+/* Toggle button positioned at the end of logo container */
+.toggle-btn {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  padding: 0;
+  margin-left: auto;
+}
+
+.toggle-btn:hover {
+  background: rgba(0, 0, 0, 0.05);
+  color: var(--primary);
+}
+
+/* In collapsed mode, button is below the logo */
+.sidebar.collapsed .logo-container {
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+}
+
+.sidebar.collapsed .logo-wrapper {
+  flex-direction: column;
+  gap: 4px;
+}
+
+.sidebar.collapsed .toggle-btn {
+  margin-left: 0;
+  margin-top: 4px;
+  order: 3; /* Makes it appear below the logo */
+}
+
+.btn-add-new {
+  width: 100%;
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 6px;
+  border-radius: 24px;
+  font-weight: 600;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 8px 0 14px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(91, 33, 182, 0.3);
+  transition: all 0.2s;
+  min-height: 35px;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-add-new span {
+  transition: opacity 0.2s;
+  white-space: nowrap;
+  opacity: 1;
+}
+
+.sidebar.collapsed .btn-add-new span {
+  opacity: 0;
+  display: none;
+}
+
+.btn-add-new i {
+  min-width: 16px;
+  text-align: center;
+}
+
+.nav-list {
+  list-style: none;
+  flex: 1;
+}
+
+.nav-item {
+  position: relative;
+  margin-bottom: 4px;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  color: var(--text-secondary);
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s;
+  width: 100%;
+  min-height: 40px;
+}
+
+.nav-link span {
+  transition: opacity 0.2s;
+  white-space: nowrap;
+  opacity: 1;
+}
+
+.sidebar.collapsed .nav-link span {
+  opacity: 0;
+  display: none;
+}
+
+.nav-link:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.nav-link.active {
+  background: rgba(255, 255, 255, 0.5);
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.nav-link i {
+  min-width: 18px;
+  text-align: center;
+}
+
+/* Tooltip */
+.tooltip {
+  position: absolute;
+  left: calc(var(--sidebar-width-collapsed) + 8px);
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.85);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s, visibility 0.2s;
+  pointer-events: none;
+  z-index: 1000;
+}
+
+.sidebar:not(.collapsed) .tooltip {
+  display: none !important;
+}
+
+.sidebar.collapsed .nav-item:hover .tooltip,
+.sidebar.collapsed .btn-add-new:hover .tooltip,
+.sidebar.collapsed .logo-container:hover .tooltip {
+  opacity: 1;
+  visibility: visible;
+}
+
+.sidebar-upgrade {
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  transition: opacity 0.2s;
+  opacity: 1;
+}
+
+.sidebar.collapsed .sidebar-upgrade {
+  opacity: 0;
+  visibility: hidden;
+  display: none;
+}
+
+.upgrade-card {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(8px);
+  border-radius: 8px;
+  padding: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.storage-info {
+  color: var(--primary);
+  font-weight: 600;
+  margin-top: 4px;
+  font-size: 11px;
+}
+
+/* Main Content */
+.main-content {
+  margin-left: var(--sidebar-width-expanded);
+  flex: 1;
+  min-height: 100vh;
+  padding: 16px 16px 16px 6px;
+  transition: margin-left 0.3s ease;
+  width: calc(100% - var(--sidebar-width-expanded));
+}
+
+.main-content.collapsed {
+  margin-left: var(--sidebar-width-collapsed);
+  width: calc(100% - var(--sidebar-width-collapsed));
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  :root {
+    --sidebar-width-expanded: 220px;
+    --sidebar-width-collapsed: 0;
+  }
+
+  .sidebar {
+    width: 250px;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    padding: 16px;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(20px);
+  }
+
+  .sidebar.mobile-open {
+    transform: translateX(0);
+  }
+
+  .sidebar.collapsed {
+    width: 250px;
+    padding: 16px;
+    transform: translateX(-100%);
+  }
+
+  .sidebar.mobile-open.collapsed {
+    width: 250px;
+    transform: translateX(0);
+  }
+
+  .main-content {
+    margin-left: 0;
+    width: 100%;
+    padding: 12px;
+  }
+
+  .main-content.collapsed {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .main-card {
+    padding: 20px;
+    border-radius: 16px;
+    min-height: calc(100vh - 24px);
+  }
+
+  .mobile-menu-toggle {
+    display: flex !important;
+    position: fixed;
+    top: 16px;
+    left: 16px;
+    z-index: 99;
+    background: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: var(--shadow);
+    color: var(--text-primary);
+    cursor: pointer;
+  }
+
+  /* Hide toggle button on mobile (we use mobile menu toggle instead) */
+  .toggle-btn {
+    display: none;
+  }
+
+  .sidebar-upgrade {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  .sidebar.collapsed .logo-text,
+  .sidebar.collapsed .nav-link span,
+  .sidebar.collapsed .btn-add-new span {
+    display: block !important;
+    opacity: 1 !important;
+  }
+
+  .logo-container,
+  .btn-add-new,
+  .nav-link {
+    justify-content: flex-start;
+    gap: 12px;
+  }
+
+  .nav-link {
+    padding: 12px;
+  }
+
+  /* Disable tooltips on mobile */
+  .tooltip {
+    display: none !important;
+  }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+  .sidebar {
+    width: 85vw;
+  }
+
+  .main-card {
+    padding: 16px;
+  }
+}
+
+/* Desktop hover effects */
+@media (min-width: 769px) {
+  .sidebar.collapsed {
+    padding: 12px 6px;
+  }
+
+  .sidebar.collapsed .logo-container,
+  .sidebar.collapsed .btn-add-new,
+  .sidebar.collapsed .nav-link {
+    justify-content: center;
+  }
+
+  .sidebar.collapsed .nav-link {
+    padding: 10px;
+  }
+
+  .sidebar.collapsed .logo-text,
+  .sidebar.collapsed .nav-link span,
+  .sidebar.collapsed .btn-add-new span,
+  .sidebar.collapsed .sidebar-upgrade {
+    display: none;
+  }
+}
