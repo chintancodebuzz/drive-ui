@@ -1,321 +1,144 @@
+<!-- Your HTML file with CSS removed and linked externally -->
+<link rel="stylesheet" href="../assets//styles//home-styles.css" />
+
 <div class="main-card">
-  <header class="header">
-    <div>
-      <span class="header-title">Basic Storage</span>
-      <span class="header-storage">5000 / 10008</span>
-    </div>
-    <div style="display: flex; align-items: center; gap: 12px">
-      <button
-        style="
-          background: none;
-          border: none;
-          color: var(--text-secondary);
-          cursor: pointer;
-        "
-      >
-        <i data-feather="help-circle"></i>
-      </button>
-      <div
-        style="
-          width: 28px;
-          height: 28px;
-          border-radius: 50%;
-          background: linear-gradient(
-            135deg,
-            var(--secondary),
-            #06b6d4
-          );
-          color: white;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-weight: 700;
-          font-size: 11px;
-        "
-      >
-        TP
+  <header class="header storage-header">
+    <div class="storage-left">
+      <img
+        src="assets/images/header/storage.svg"
+        alt="Storage"
+        class="storage-icon"
+      />
+
+      <div class="storage-info">
+        <div class="storage-text">
+          <span class="header-title">Basic Storage</span>
+          <span class="header-storage">50GB / 100GB</span>
+        </div>
+
+        <div class="storage-bar">
+          <span class="storage-progress" style="width: 50%"></span>
+        </div>
       </div>
+    </div>
+
+    <div class="storage-actions">
+      <button class="icon-btn">
+        <img src="assets/images/header/question.svg" alt="Help" />
+      </button>
+
+      <img
+        src="assets/images/header/profile.svg"
+        alt="Profile"
+        class="profile-img"
+      />
     </div>
   </header>
 
-  <div class="welcome-icon">
-    <svg width="60" height="60" viewBox="0 0 80 80" fill="none">
-      <circle
-        cx="40"
-        cy="40"
-        r="38"
-        fill="#f0f4ff"
-        stroke="#e0e7ff"
-        stroke-width="2"
+  <div class="outlet-content">
+    <div class="welcome-icon">
+      <img
+        src="../assets\images\home\logo_with_bg.svg"
+        alt="logo"
+        width="100"
+        height="100"
       />
-      <path d="M40 20L50 50H30L40 20" fill="#5b21b6" />
-    </svg>
-  </div>
-  <h1 class="welcome-title">Welcome Back Tarun Patel</h1>
-  <p class="welcome-subtitle">
-    Turn imagination into impact with M'Clime AI — unlock endless
-    possibilities and transform documents intelligently.
-  </p>
-
-  <div class="ask-section">
-    <div class="ask-input-wrapper">
-      <input
-        type="text"
-        class="ask-input"
-        placeholder="Ask me anything"
-      />
-      <button class="ask-btn"><i data-feather="send"></i> Send</button>
     </div>
-  </div>
-
-  <div class="response-section">
-    <div class="section-header">
-      <i data-feather="message-circle"></i> Response
-    </div>
-    <p style="color: var(--text-secondary)">
-      Your AI responses will appear here...
+    <h1 class="welcome-title">Welcome Back Tarun Patel</h1>
+    <p class="welcome-subtitle">
+      Turn imagination into impact with M'Clime AI-built to unlock endless
+      possibilities and transform documents into intelligent results.
     </p>
-  </div>
 
-  <div class="suggested-section">
-    <div class="section-header">
-      <i data-feather="bookmark"></i> Suggested Files
+    <div class="ask-section">
+      <div class="ask-input-wrapper">
+        <input type="text" class="ask-input" placeholder="Ask me anything" />
+        <button class="ask-btn">
+          <img src="../assets/images/home/send.svg" alt="send" /> Send
+        </button>
+      </div>
     </div>
-    <div class="files-grid">
-      <div class="file-card">
-        <div class="file-thumbnail"></div>
-        <div class="file-name">Project Brief.pdf</div>
-        <div class="file-date">Oct 22, 2025</div>
+
+    <div class="response-section">
+      <div class="section-header">
+        <div class="response-title">
+          <img src="../assets/images/logos/logo_with_bg.svg" alt="logo" />
+          <span>Response</span>
+        </div>
+
+        <div class="response-actions">
+          <img src="../assets/images/home/like.svg" alt="like" />
+          <img src="../assets/images/home/dislike.svg" alt="dislike" />
+          <img src="../assets/images/home/comment.svg" alt="comment" />
+        </div>
       </div>
-      <div class="file-card">
-        <div class="file-thumbnail"></div>
-        <div class="file-name">Financial Report.pdf</div>
-        <div class="file-date">Oct 20, 2025</div>
+      <h5>
+        Here's a clear and simple explanation of PAN number details with an
+        example 👇
+      </h5>
+
+      <div class="content-section">
+        <h3>What is PAN Card</h3>
+        <p>
+          A PAN Card (Permanent Account Number) is an official identification
+          card issued by the Income Tax Department of India. It contains a
+          unique 10-character alphanumeric code used to track financial and
+          tax-related activities.
+        </p>
+
+        <h3>What is My PAN Number</h3>
+        <p>
+          A PAN Card (Permanent Account Number) is
+          <strong class="pan-number">AAAA8888A</strong>. It contains a unique
+          10-character alphanumeric code used to track financial and tax-related
+          activities.
+        </p>
       </div>
-      <div class="file-card">
-        <div class="file-thumbnail"></div>
-        <div class="file-name">Design Assets.zip</div>
-        <div class="file-date">Oct 18, 2025</div>
+    </div>
+
+    <div class="suggested-section">
+      <div class="section-header">
+        <div class="response-title">
+          <img src="../assets/images/logos/logo_with_bg.svg" alt="logo" />
+          <span>Suggested Files</span>
+        </div>
+
+        <div class="response-actions">
+          <img src="../assets/images/home/like.svg" alt="like" />
+          <img src="../assets/images/home/dislike.svg" alt="dislike" />
+          <img src="../assets/images/home/comment.svg" alt="comment" />
+        </div>
       </div>
-      <div class="file-card">
-        <div class="file-thumbnail"></div>
-        <div class="file-name">Meeting Notes.docx</div>
-        <div class="file-date">Oct 15, 2025</div>
+
+      <div class="files-grid">
+        <div class="file-card">
+          <!-- <div class="file-thumbnail"></div> -->
+          <img src="../assets\images\home\file.svg" alt="file" class="file" />
+          <div class="file-name">Project Brief.pdf</div>
+          <div class="file-date">Oct 22, 2025</div>
+        </div>
+        <div class="file-card">
+          <!-- <div class="file-thumbnail"></div> -->
+          <img src="../assets\images\home\file.svg" alt="file" class="file" />
+
+          <div class="file-name">Financial Report.pdf</div>
+          <div class="file-date">Oct 20, 2025</div>
+        </div>
+        <div class="file-card">
+          <!-- <div class="file-thumbnail"></div> -->
+          <img src="../assets\images\home\file.svg" alt="file" class="file" />
+
+          <div class="file-name">Design Assets.zip</div>
+          <div class="file-date">Oct 18, 2025</div>
+        </div>
+        <div class="file-card">
+          <!-- <div class="file-thumbnail"></div> -->
+          <img src="../assets\images\home\file.svg" alt="file" class="file" />
+
+          <div class="file-name">Meeting Notes.docx</div>
+          <div class="file-date">Oct 15, 2025</div>
+        </div>
       </div>
     </div>
   </div>
 </div>
-
-<style>
-.main-card {
-  flex: 1;
-  background: url("assets/images/common/global_bg.svg") center / cover
-      no-repeat,
-    rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
-  border-radius: 20px;
-  padding: 28px;
-  box-shadow: var(--shadow);
-  overflow-y: auto;
-  display: flex;
-  flex-direction: column;
-  min-height: calc(100vh - 32px);
-}
-
-.welcome-icon {
-  text-align: center;
-  margin-bottom: 16px;
-}
-
-.welcome-icon svg {
-  width: 60px;
-  height: 60px;
-}
-
-.welcome-title {
-  text-align: center;
-  font-size: 22px;
-  font-weight: 700;
-  margin-bottom: 8px;
-  color: var(--primary);
-  line-height: 1.3;
-}
-
-.welcome-subtitle {
-  text-align: center;
-  font-size: 12px;
-  color: var(--text-secondary);
-  max-width: 600px;
-  margin: 0 auto 24px;
-  line-height: 1.5;
-}
-
-.ask-section {
-  margin-bottom: 24px;
-}
-
-.ask-input-wrapper {
-  display: flex;
-  gap: 8px;
-  background: white;
-  padding: 8px;
-  border-radius: 12px;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
-}
-
-.ask-input {
-  flex: 1;
-  border: none;
-  padding: 12px 16px;
-  border-radius: 10px;
-  font-size: 13px;
-  background: #f9fafb;
-  min-width: 0;
-}
-
-.ask-btn {
-  background: var(--primary);
-  color: white;
-  border: none;
-  padding: 0 20px;
-  border-radius: 10px;
-  font-weight: 600;
-  font-size: 12px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  min-width: 80px;
-  transition: background 0.2s;
-}
-
-.ask-btn:hover {
-  background: var(--primary-light);
-}
-
-.response-section,
-.suggested-section {
-  background: white;
-  border-radius: 12px;
-  padding: 20px;
-  margin-bottom: 24px;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
-}
-
-.section-header {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 16px;
-  padding-bottom: 12px;
-  border-bottom: 1px solid var(--border);
-  font-size: 14px;
-  font-weight: 600;
-}
-
-.files-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-  gap: 16px;
-}
-
-.file-card {
-  background: white;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
-  padding: 12px;
-  text-align: center;
-  transition: transform 0.2s;
-  border: 1px solid var(--border);
-}
-
-.file-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
-}
-
-.file-thumbnail {
-  height: 100px;
-  border-radius: 10px;
-  background: linear-gradient(135deg, #818cf8, #5b21b6);
-  margin-bottom: 10px;
-}
-
-.file-name {
-  font-size: 12px;
-  font-weight: 600;
-  margin-bottom: 4px;
-  word-break: break-word;
-}
-
-.file-date {
-  font-size: 10px;
-  color: var(--text-tertiary);
-}
-
-@media (max-width: 768px) {
-  .main-card {
-    padding: 20px;
-    border-radius: 16px;
-    min-height: calc(100vh - 24px);
-  }
-
-  .welcome-title {
-    font-size: 20px;
-  }
-
-  .welcome-subtitle {
-    font-size: 11px;
-    padding: 0 10px;
-  }
-
-  .header {
-    padding: 8px 0;
-    margin-bottom: 12px;
-  }
-
-  .files-grid {
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-    gap: 12px;
-  }
-}
-
-@media (max-width: 480px) {
-  .main-card {
-    padding: 16px;
-  }
-
-  .welcome-title {
-    font-size: 18px;
-  }
-
-  .welcome-icon svg {
-    width: 50px;
-    height: 50px;
-  }
-
-  .ask-input-wrapper {
-    flex-direction: column;
-  }
-
-  .ask-btn {
-    width: 100%;
-    padding: 12px;
-  }
-
-  .files-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .response-section,
-  .suggested-section {
-    padding: 16px;
-  }
-
-  .section-header {
-    font-size: 13px;
-  }
-}
-</style>
