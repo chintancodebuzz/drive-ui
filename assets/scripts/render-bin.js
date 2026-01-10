@@ -42,11 +42,18 @@ function renderGridViewBin() {
         <div class="file-info">
           <div class="file-name-wrapper">
             <div class="file-name">${file.name}</div>
-            <img
-              src="assets/images/common/three_dot.svg"
-              alt="options"
-              class="three-dots"
-            />
+            <div class="file-actions" data-file-id="${file.id}">
+              <img
+                src="../assets/images/common/three_dot.svg"
+                class="three-dots"
+                alt="options"
+              />
+
+              <ul class="dropdown-menu file-menu">
+                <li data-action="restore">Restore</li>
+                <li data-action="delete" class="danger">Delete Permanently</li>
+              </ul>
+            </div>
           </div>
           <div class="file-date">${file.date}</div>
         </div>
@@ -112,8 +119,8 @@ function renderListViewBin() {
       </thead>
       <tbody>
         ${window.binFilesData
-          .map(
-            (file) => `
+      .map(
+        (file) => `
           <tr class="file-row" data-file-id="${file.id}">
             <td class="td-name">
               <div class="file-info-cell">
@@ -134,27 +141,34 @@ function renderListViewBin() {
             <td class="td-size">${file.size}</td>
             <td class="td-actions">
               <div class="action-buttons">
-               ${
-                 file.isStarred
-                   ? `
+               ${file.isStarred
+            ? `
 <button class="action-btn info-btn" title="Info">
                   <img src="assets/images/home/star.svg" alt="info" width="16" height="16">
                 </button>                  `
-                   : `<button class="action-btn info-btn" title="Info">
+            : `<button class="action-btn info-btn" title="Info">
                   <img src="assets/images/home/inactive_star.svg" alt="info" width="16" height="16">
                 </button>`
-               }
+          }
                 
-                <button class="action-btn download-btn" title="Download">
-                  <img src="assets/images/common/three_dot.svg" alt="download" width="16" height="16">
-                </button>
-              
+                <div class="file-actions" data-file-id="${file.id}">
+                  <img
+                    src="../assets/images/common/three_dot.svg"
+                    class="three-dots"
+                    alt="options"
+                  />
+
+                  <ul class="dropdown-menu file-menu">
+                    <li data-action="restore">Restore</li>
+                    <li data-action="delete" class="danger">Delete Permanently</li>
+                  </ul>
+                </div>
               </div>
             </td>
           </tr>
         `
-          )
-          .join("")}
+      )
+      .join("")}
       </tbody>
     </table>
   `;

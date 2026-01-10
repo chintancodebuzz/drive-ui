@@ -316,17 +316,28 @@
 .file-card {
   background: white;
   border-radius: 12px;
-  overflow: hidden;
+  /* overflow: hidden; */
   border: 1px solid #e5e7eb;
   transition: all 0.2s ease;
   cursor: pointer;
   position: relative;
 }
 
-.file-card:hover {
+.file-card:hover:not(:has(.file-actions.active)) {
   transform: translateY(-4px);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
   border-color: #cbd5e1;
+  z-index: 2;
+}
+
+.file-card:has(.file-actions.active) {
+  z-index: 100;
+  transform: translateY(-4px);
+}
+
+.file-actions.active {
+  position: relative;
+  z-index: 1000;
 }
 
 .file-thumbnail {
@@ -337,12 +348,16 @@
   align-items: center;
   justify-content: center;
   position: relative;
+  border-top-right-radius: 12px;
+  border-top-left-radius: 12px;
 }
 
 .file-thumbnail img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-top-right-radius: 12px;
+  border-top-left-radius: 12px;
 }
 
 .file-card.folder .file-thumbnail {
@@ -401,6 +416,24 @@
   flex: 1;
 }
 
+.file-actions {
+  position: relative;
+}
+
+.file-menu {
+  right: 0;
+  top: 26px;
+  min-width: max-content;
+  max-width: 170px;
+  width: 100%;
+  z-index: 1100;
+  pointer-events: auto;
+}
+
+.file-actions.active .file-menu {
+  display: block;
+}
+
 .three-dots {
   width: 18px;
   height: 18px;
@@ -424,7 +457,7 @@
   background: none;
   /* border-radius: 12px; */
   /* border: 1px solid #e5e7eb; */
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .files-table {
@@ -585,21 +618,25 @@
 
 /* Column widths */
 .th-name {
-  width:30%;
+  width: 30%;
   min-width: 250px;
 }
+
 .th-category {
   width: 20%;
   min-width: 120px;
 }
+
 .th-date {
   width: 20%;
   min-width: 120px;
 }
+
 .th-size {
   width: 15%;
   min-width: 100px;
 }
+
 .th-actions {
   width: 15%;
   min-width: 150px;

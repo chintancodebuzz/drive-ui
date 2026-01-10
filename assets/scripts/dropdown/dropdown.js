@@ -1,39 +1,44 @@
 document.addEventListener("click", function (e) {
     const dropdownBtn = e.target.closest(".dropdown-btn");
-    const dropdown = e.target.closest(".custom-dropdown");
+    const dropdownItem = e.target.closest(".dropdown-menu li");
+    const threeDots = e.target.closest(".three-dots");
 
-    // Close all if clicked outside
-    if (!dropdownBtn) {
-        document
-            .querySelectorAll(".custom-dropdown")
-            .forEach((d) => d.classList.remove("active"));
+    if (dropdownBtn) {
+        e.stopPropagation();
+
+        document.querySelectorAll(".custom-dropdown").forEach((el) => {
+            el.classList.remove("active");
+        });
+
+        dropdownBtn.closest(".custom-dropdown").classList.add("active");
         return;
     }
 
-    // Toggle current dropdown
-    document
-        .querySelectorAll(".custom-dropdown")
-        .forEach((d) => {
-            if (d !== dropdown) d.classList.remove("active");
+    if (dropdownItem && dropdownItem.closest(".custom-dropdown")) {
+        e.stopPropagation();
+
+        const dropdown = dropdownItem.closest(".custom-dropdown");
+        const label = dropdown.querySelector(".dropdown-btn span");
+
+        label.textContent = dropdownItem.textContent;
+        dropdown.classList.remove("active");
+
+        handleFilterChange(dropdown.dataset.filter, dropdownItem.dataset.value);
+        return;
+    }
+
+    if (threeDots) {
+        e.stopPropagation();
+
+        document.querySelectorAll(".file-actions").forEach((el) => {
+            el.classList.remove("active");
         });
 
-    dropdown.classList.toggle("active");
-});
+        threeDots.closest(".file-actions").classList.add("active");
+        return;
+    }
 
-// Handle item click
-document.addEventListener("click", function (e) {
-    const item = e.target.closest(".dropdown-menu li");
-    if (!item) return;
-
-    const dropdown = item.closest(".custom-dropdown");
-    const label = dropdown.querySelector(".dropdown-btn span");
-
-    label.textContent = item.textContent;
-    dropdown.classList.remove("active");
-
-    // Optional callback
-    const value = item.dataset.value;
-    const type = dropdown.dataset.type;
-
-    console.log("Dropdown changed:", type, value);
+    document.querySelectorAll(".custom-dropdown, .file-actions").forEach((el) => {
+        el.classList.remove("active");
+    });
 });
