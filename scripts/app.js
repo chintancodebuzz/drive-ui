@@ -25,8 +25,7 @@ class PageLoader {
 
     // Handle browser back/forward
     window.addEventListener("hashchange", async () => {
-      const page =
-        window.location.hash.replace("#", "") || "home";
+      const page = window.location.hash.replace("#", "") || "home";
       await this.loadPage(page);
     });
   }
@@ -66,40 +65,47 @@ class PageLoader {
   }
 
   initPageScripts(pageName) {
-    switch (pageName) {
-      case "home":
-        if (window.initHomePage) {
-          window.initHomePage();
-        }
-        break;
+    // Small delay to ensure DOM is ready
+    setTimeout(() => {
+      switch (pageName) {
+        case "home":
+          if (window.initHomePage) {
+            window.initHomePage();
+          }
+          break;
 
-      case "mydrive":
-        if (window.initMyDrivePage) {
-          window.initMyDrivePage();
-        }
-        break;
+        case "mydrive":
+          // Initialize My Drive scripts
+          if (window.initMyDrive) {
+            console.log("Initializing My Drive...");
+            window.initMyDrive();
+          } else {
+            console.error("initMyDrive function not found!");
+          }
+          break;
 
-      case "starred":
-        if (window.initStarredPage) {
-          window.initStarredPage();
-        }
-        break;
+        case "starred":
+          if (window.initStarredPage) {
+            window.initStarredPage();
+          }
+          break;
 
-      case "bin":
-        if (window.initBinPage) {
-          window.initBinPage();
-        }
-        break;
+        case "bin":
+          if (window.initBinPage) {
+            window.initBinPage();
+          }
+          break;
 
-      case "storage":
-        if (window.initStoragePage) {
-          window.initStoragePage();
-        }
-        break;
+        case "storage":
+          if (window.initStoragePage) {
+            window.initStoragePage();
+          }
+          break;
 
-      default:
-        break;
-    }
+        default:
+          break;
+      }
+    }, 50);
   }
 }
 
