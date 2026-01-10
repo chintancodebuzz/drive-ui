@@ -48,38 +48,88 @@
             <input
               type="text"
               class="search-input"
-              placeholder="Search files..."
+              placeholder="Search In My Drive"
             />
           </div>
           <div class="filters">
             <select class="filter-select">
-              <option>All Files</option>
+              <option>All</option>
               <option>Documents</option>
               <option>Images</option>
               <option>Videos</option>
             </select>
             <select class="filter-select">
-              <option>Date Modified</option>
+              <option>Type</option>
+              <option>Name</option>
+              <option>Size</option>
+            </select>
+            <select class="filter-select">
+              <option>Filter By</option>
+              <option>Name</option>
+              <option>Size</option>
+            </select>
+            <select class="filter-select">
+              <option>Sort By</option>
               <option>Name</option>
               <option>Size</option>
             </select>
           </div>
         </div>
-        <div class="page-title">My Drive</div>
-        <div class="page-header">
-          <div>
-            <img src="../assets/images/common/figma.svg" alt="" />
-            <p>
-              <span>Cloud Dashboard.fig</span> •<span> 1.5 GB</span> •<span>
-                Sep 28, 2025</span
-              >
-            </p>
+        <div class="mydrive-header">
+          <div class="page-title">My Drive</div>
+
+          <div class="view-toggle">
+            <button class="view-btn active">
+              <img src="assets/images/mydrive/grid.svg" alt="Grid view" />
+            </button>
+            <button class="view-btn">
+              <img src="assets/images/mydrive/list.svg" alt="List view" />
+            </button>
           </div>
-          <div>
-            <img src="../assets/images/common/figma.svg" alt="" />
-            <img src="../assets/images/common/figma.svg" alt="" />
-            <img src="../assets/images/common/figma.svg" alt="" />
-            <img src="../assets/images/common/figma.svg" alt="" />
+        </div>
+
+        <div class="page-header">
+          <div class="page-header-info">
+            <img src="../assets/images/mydrive/figam_wb.svg" alt="" />
+            <p>
+              <span>Cloud Dashboard.fig </span> • <span> 1.5 GB </span> •
+              <span> Sep 28, 2025</span>
+            </p>
+            <button class="view_detils">
+              <img
+                src="../assets/images/mydrive/search_docs.svg"
+                alt="search"
+                width="16"
+                height="16"
+              />
+              View Details
+            </button>
+          </div>
+          <div class="action_images">
+            <img
+              src="../assets/images/mydrive/info_circle.svg"
+              alt="info"
+              width="22"
+              height="22"
+            />
+            <img
+              src="../assets/images/mydrive/download.svg"
+              alt="download"
+              width="22"
+              height="22"
+            />
+            <img
+              src="../assets/images/mydrive/rename.svg"
+              alt="rename"
+              width="22"
+              height="22"
+            />
+            <img
+              src="../assets/images/mydrive/delete.svg"
+              alt="delete"
+              width="22"
+              height="22"
+            />
           </div>
         </div>
         <div class="files-grid">

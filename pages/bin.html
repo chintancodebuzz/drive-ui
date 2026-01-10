@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Drive - M'Clime</title>
+    <link rel="stylesheet" href="../assets/styles/mydrive-styles.css" />
+  </head>
+  <body>
+    <div class="main-card">
+      <!-- Header - same as your original storage header -->
+      <header class="header storage-header">
+        <div class="storage-left">
+          <img
+            src="assets/images/header/storage.svg"
+            alt="Storage"
+            class="storage-icon"
+          />
+
+          <div class="storage-info">
+            <div class="storage-text">
+              <span class="header-title">Basic Storage</span>
+              <span class="header-storage">50GB / 100GB</span>
+            </div>
+
+            <div class="storage-bar">
+              <span class="storage-progress" style="width: 50%"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="storage-actions">
+          <button class="icon-btn">
+            <img src="assets/images/header/question.svg" alt="Help" />
+          </button>
+
+          <img
+            src="assets/images/header/profile.svg"
+            alt="Profile"
+            class="profile-img"
+          />
+        </div>
+      </header>
+      <!-- My Drive Content - Google Drive style grid -->
+      <div class="mydrive-content">
+        <div class="view-controls">
+          <div class="search-bar">
+            <input
+              type="text"
+              class="search-input"
+              placeholder="Search In My Drive"
+            />
+          </div>
+          <div class="filters">
+            <select class="filter-select">
+              <option>All</option>
+              <option>Documents</option>
+              <option>Images</option>
+              <option>Videos</option>
+            </select>
+            <select class="filter-select">
+              <option>Type</option>
+              <option>Name</option>
+              <option>Size</option>
+            </select>
+            <select class="filter-select">
+              <option>Filter By</option>
+              <option>Name</option>
+              <option>Size</option>
+            </select>
+            <select class="filter-select">
+              <option>Sort By</option>
+              <option>Name</option>
+              <option>Size</option>
+            </select>
+          </div>
+        </div>
+        <div class="mydrive-header">
+          <div class="page-title">My Drive</div>
+
+          <div class="view-toggle">
+            <button class="view-btn active">
+              <img src="assets/images/mydrive/grid.svg" alt="Grid view" />
+            </button>
+            <button class="view-btn">
+              <img src="assets/images/mydrive/list.svg" alt="List view" />
+            </button>
+          </div>
+        </div>
+
+        <div class="page-header">
+          <div class="page-header-info">
+            <img src="../assets/images/mydrive/figam_wb.svg" alt="" />
+            <p>
+              <span>Cloud Dashboard.fig </span> • <span> 1.5 GB </span> •
+              <span> Sep 28, 2025</span>
+            </p>
+            <button class="view_detils">
+              <img
+                src="../assets/images/mydrive/search_docs.svg"
+                alt="search"
+                width="16"
+                height="16"
+              />
+              View Details
+            </button>
+          </div>
+          <div class="action_images">
+            <img
+              src="../assets/images/mydrive/info_circle.svg"
+              alt="info"
+              width="22"
+              height="22"
+            />
+            <img
+              src="../assets/images/mydrive/download.svg"
+              alt="download"
+              width="22"
+              height="22"
+            />
+            <img
+              src="../assets/images/mydrive/rename.svg"
+              alt="rename"
+              width="22"
+              height="22"
+            />
+            <img
+              src="../assets/images/mydrive/delete.svg"
+              alt="delete"
+              width="22"
+              height="22"
+            />
+          </div>
+        </div>
+        <div class="files-grid">
+          <!-- File Card 1 with both stars -->
+          <div class="file-card folder">
+            <div class="file-thumbnail">
+              <img src="../assets/images/home/file.svg" alt="Folder" />
+              <div class="file-rating">
+                <img
+                  src="../assets/images/home/inactive_star.svg"
+                  alt="inactive star"
+                  class="rating-icon inactive-star-icon"
+                />
+              </div>
+            </div>
+            <div class="file-info">
+              <div class="file-name-wrapper">
+                <div class="file-name">Project Brief</div>
+                <img
+                  src="../assets/images/common/three_dot.svg"
+                  alt="options"
+                  class="three-dots"
+                />
+              </div>
+              <div class="file-date">Sep 28, 2025</div>
+            </div>
+          </div>
+
+          <!-- File Card 2 with only active star -->
+          <div class="file-card folder">
+            <div class="file-thumbnail">
+              <img src="../assets/images/home/file.svg" alt="Folder" />
+              <div class="file-rating">
+                <img
+                  src="../assets/images/home/star.svg"
+                  alt="star"
+                  class="rating-icon star-icon"
+                />
+              </div>
+            </div>
+            <div class="file-info">
+              <div class="file-name-wrapper">
+                <div class="file-name">Financial Reports</div>
+                <img
+                  src="../assets/images/common/three_dot.svg"
+                  alt="options"
+                  class="three-dots"
+                />
+              </div>
+              <div class="file-date">Sep 25, 2025</div>
+            </div>
+          </div>
+
+          <!-- File Card 3 with only inactive star -->
+          <div class="file-card folder">
+            <div class="file-thumbnail">
+              <img src="../assets/images/home/file.svg" alt="Folder" />
+              <div class="file-rating">
+                <img
+                  src="../assets/images/home/inactive_star.svg"
+                  alt="inactive star"
+                  class="rating-icon inactive-star-icon"
+                />
+              </div>
+            </div>
+            <div class="file-info">
+              <div class="file-name-wrapper">
+                <div class="file-name">Design Assets</div>
+                <img
+                  src="../assets/images/common/three_dot.svg"
+                  alt="options"
+                  class="three-dots"
+                />
+              </div>
+              <div class="file-date">Sep 22, 2025</div>
+            </div>
+          </div>
+
+          <!-- File Card 4 with both stars -->
+          <div class="file-card folder">
+            <div class="file-thumbnail">
+              <img src="../assets/images/home/file.svg" alt="Folder" />
+              <div class="file-rating">
+                <img
+                  src="../assets/images/home/inactive_star.svg"
+                  alt="inactive star"
+                  class="rating-icon inactive-star-icon"
+                />
+              </div>
+            </div>
+            <div class="file-info">
+              <div class="file-name-wrapper">
+                <div class="file-name">Meeting Notes</div>
+                <img
+                  src="../assets/images/common/three_dot.svg"
+                  alt="options"
+                  class="three-dots"
+                />
+              </div>
+              <div class="file-date">Sep 20, 2025</div>
+            </div>
+          </div>
+
+          <!-- File Card 5 with no stars -->
+          <div class="file-card folder">
+            <div class="file-thumbnail">
+              <img src="../assets/images/home/file.svg" alt="Folder" />
+              <div class="file-rating">
+                <img
+                  src="../assets/images/home/inactive_star.svg"
+                  alt="inactive star"
+                  class="rating-icon inactive-star-icon"
+                />
+              </div>
+            </div>
+
+            <div class="file-info">
+              <div class="file-name-wrapper">
+                <div class="file-name">Budget Plans</div>
+                <img
+                  src="../assets/images/common/three_dot.svg"
+                  alt="options"
+                  class="three-dots"
+                />
+              </div>
+              <div class="file-date">Sep 18, 2025</div>
+            </div>
+          </div>
+
+          <!-- File Card 6 with both stars -->
+          <div class="file-card folder">
+            <div class="file-thumbnail">
+              <img src="../assets/images/home/file.svg" alt="Folder" />
+              <div class="file-rating">
+                <img
+                  src="../assets/images/home/inactive_star.svg"
+                  alt="inactive star"
+                  class="rating-icon inactive-star-icon"
+                />
+              </div>
+            </div>
+            <div class="file-info">
+              <div class="file-name-wrapper">
+                <div class="file-name">Client Presentations</div>
+                <img
+                  src="../assets/images/common/three_dot.svg"
+                  alt="options"
+                  class="three-dots"
+                />
+              </div>
+              <div class="file-date">Sep 15, 2025</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
