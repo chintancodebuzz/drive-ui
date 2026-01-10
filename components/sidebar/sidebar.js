@@ -102,35 +102,35 @@ class Sidebar {
             <li class="nav-item">
               <a href="#home" class="nav-link" data-page="home">
                 <span class="icon-bg"><img src="assets/images/sidebar/home.svg" alt="Home" /></span>
-                <span>Home</span>
+                <span class="nav-text">Home</span>
                 <div class="tooltip">Home</div>
               </a>
             </li>
             <li class="nav-item">
               <a href="#mydrive" class="nav-link" data-page="mydrive">
                 <span class="icon-bg"><img src="assets/images/sidebar/drive.svg" alt="My Drive" /></span>
-                <span>My Drive</span>
+                <span class="nav-text">My Drive</span>
                 <div class="tooltip">My Drive</div>
               </a>
             </li>
             <li class="nav-item">
               <a href="#starred" class="nav-link" data-page="starred">
                 <span class="icon-bg"><img src="assets/images/sidebar/starred.svg" alt="Starred" /></span>
-                <span>Starred</span>
+                <span class="nav-text">Starred</span>
                 <div class="tooltip">Starred</div>
               </a>
             </li>
             <li class="nav-item">
               <a href="#bin" class="nav-link" data-page="bin">
                 <span class="icon-bg"><img src="assets/images/sidebar/bin.svg" alt="Bin" /></span>
-                <span>Bin</span>
+                <span class="nav-text">Bin</span>
                 <div class="tooltip">Bin</div>
               </a>
             </li>
             <li class="nav-item">
               <a href="#storage" class="nav-link" data-page="storage">
                 <span class="icon-bg"><img src="assets/images/sidebar/storages.svg" alt="Storage" /></span>
-                <span>Storage</span>
+                <span class="nav-text">Storage</span>
                 <div class="tooltip">Storage</div>
               </a>
             </li>

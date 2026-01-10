@@ -30,16 +30,40 @@ function renderFilesGrid() {
 
   // Create file cards using map
   const fileCards = window.filesData.map((file) => {
+    const starIcon = file.isStarred
+      ? "assets/images/home/star.svg"
+      : "assets/images/home/inactive_star.svg";
+
+    const starClass = file.isStarred ? "star-icon" : "inactive-star-icon";
+
     return `
-      <div class="file-card" data-file-id="${file.id}">
-        <img 
-          src="${file.image}" 
-          alt="${file.name}" 
-          class="file-image"
-          onerror="this.src='../assets/images/home/file.svg'"
-        />
-        <div class="file-name">${file.name}</div>
-        <div class="file-date">${file.date}</div>
+      <div class="file-card folder" data-file-id="${file.id}">
+        <div class="file-thumbnail">
+          <img src="${file.image}" alt="${file.name}" />
+          <div class="file-rating">
+            <img 
+              src="${starIcon}" 
+              alt="${file.isStarred ? "starred" : "not starred"}" 
+              class="rating-icon ${starClass}"
+            />
+          </div>
+        </div>
+        <div class="file-info">
+          <div class="file-name-wrapper">
+            <div class="file-name">${file.name}</div>
+            <div class="file-actions" data-file-id="${file.id}">
+                <img src="assets/images/common/three_dot.svg" class="three-dots" />
+
+                <ul class="dropdown-menu file-menu">
+                  <li data-action="file_info"><img src="assets/images/common/action/info.svg" alt="info"/>File Information</li>
+                  <li data-action="rename"><img src="assets/images/common/action/rename.svg" alt="rename"/>Rename</li>
+                  <li data-action="download"><img src="assets/images/common/action/download.svg" alt="download"/>Download</li>
+                  <li data-action="delete" class="danger"><img src="assets/images/common/action/delete.svg" alt="delete"/>Delete</li>
+                </ul>
+            </div>
+          </div>
+          <div class="file-date">${file.date}</div>
+        </div>
       </div>
     `;
   });
@@ -51,7 +75,9 @@ function renderFilesGrid() {
 
   // Add event listeners to file cards
   document.querySelectorAll(".file-card").forEach((card) => {
-    card.addEventListener("click", function () {
+    card.addEventListener("click", function (e) {
+      // Ignore clicks that originate from file-actions or three-dots so they can be handled separately
+      if (e.target.closest('.file-actions') || e.target.closest('.three-dots')) return;
       const fileId = this.getAttribute("data-file-id");
       const file = window.filesData.find((f) => f.id == fileId);
       if (file) {

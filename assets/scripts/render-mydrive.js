@@ -46,9 +46,10 @@ function renderGridView() {
                 <img src="../assets/images/common/three_dot.svg" class="three-dots" />
 
                 <ul class="dropdown-menu file-menu">
-                  <li data-action="rename">Rename</li>
-                  <li data-action="download">Download</li>
-                  <li data-action="delete" class="danger">Delete</li>
+                  <li data-action="file_info"><img src="assets/images/common/action/info.svg" alt="info"/>File Information</li>
+                  <li data-action="rename"><img src="assets/images/common/action/rename.svg" alt="rename"/>Rename</li>
+                  <li data-action="download"><img src="assets/images/common/action/download.svg" alt="download"/>Download</li>
+                  <li data-action="delete" class="danger"><img src="assets/images/common/action/delete.svg" alt="delete"/>Delete</li>
                 </ul>
             </div>
           </div>
@@ -60,6 +61,20 @@ function renderGridView() {
 
   filesContainer.innerHTML = fileCards.join("");
   console.log(`Rendered ${window.mydriveFilesData.length} files in grid view`);
+
+  // Add click handlers to file cards that ignore clicks inside file-actions so menus can open normally
+  document.querySelectorAll(".file-card").forEach((card) => {
+    card.addEventListener("click", function (e) {
+      if (e.target.closest(".file-actions") || e.target.closest(".three-dots"))
+        return;
+      const fileId = this.getAttribute("data-file-id");
+      const file = window.mydriveFilesData.find((f) => f.id == fileId);
+      if (file) {
+        console.log("File clicked:", file.name);
+        // Optional: open preview or navigate to file
+      }
+    });
+  });
 }
 
 // Function to render list/table view
@@ -116,8 +131,8 @@ function renderListView() {
       </thead>
       <tbody>
         ${window.mydriveFilesData
-      .map(
-        (file) => `
+          .map(
+            (file) => `
           <tr class="file-row" data-file-id="${file.id}">
             <td class="td-name">
               <div class="file-info-cell">
@@ -138,15 +153,16 @@ function renderListView() {
             <td class="td-size">${file.size}</td>
             <td class="td-actions">
               <div class="action-buttons">
-               ${file.isStarred
-            ? `
+               ${
+                 file.isStarred
+                   ? `
 <button class="action-btn info-btn" title="Info">
                   <img src="assets/images/home/star.svg" alt="info" width="16" height="16">
                 </button>                  `
-            : `<button class="action-btn info-btn" title="Info">
+                   : `<button class="action-btn info-btn" title="Info">
                   <img src="assets/images/home/inactive_star.svg" alt="info" width="16" height="16">
                 </button>`
-          }
+               }
                 
                 <div class="file-actions" data-file-id="${file.id}">
                   <img
@@ -156,16 +172,18 @@ function renderListView() {
                   />
 
                   <ul class="dropdown-menu file-menu">
-                    <li data-action="restore">Restore</li>
-                    <li data-action="delete" class="danger">Delete Permanently</li>
-                  </ul>
+                  <li data-action="file_info"><img src="assets/images/common/action/info.svg" alt="info"/>File Information</li>
+                  <li data-action="rename"><img src="assets/images/common/action/rename.svg" alt="rename"/>Rename</li>
+                  <li data-action="download"><img src="assets/images/common/action/download.svg" alt="download"/>Download</li>
+                  <li data-action="delete" class="danger"><img src="assets/images/common/action/delete.svg" alt="delete"/>Delete</li>
+                </ul>
                 </div>
               </div>
             </td>
           </tr>
         `
-      )
-      .join("")}
+          )
+          .join("")}
       </tbody>
     </table>
   `;

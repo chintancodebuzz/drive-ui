@@ -221,7 +221,7 @@
 
 .dropdown-menu {
   position: absolute;
-  top: 48px;
+  top: 18px;
   left: 0;
   width: 100%;
   background: #fff;
@@ -234,9 +234,27 @@
 }
 
 .dropdown-menu li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   padding: 10px 14px;
   cursor: pointer;
   font-size: 14px;
+}
+
+.dropdown-menu li img {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.dropdown-menu li:first-child {
+  border-bottom: 1px solid #eef2f7;
+  padding-bottom: 12px;
+}
+
+.dropdown-menu li.danger {
+  color: #dc2626;
 }
 
 .dropdown-menu li:hover {
@@ -613,6 +631,8 @@
 .action-buttons {
   display: flex;
   gap: 8px;
+  justify-content: center;
+  align-items: center;
 }
 
 .action-btn {
