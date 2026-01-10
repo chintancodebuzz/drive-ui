@@ -74,6 +74,19 @@
   color: var(--primary);
 }
 
+/* Toggle icon rotation */
+.toggle-icon {
+  transition: transform 0.3s ease;
+}
+
+.sidebar:not(.collapsed) .toggle-icon {
+  transform: rotate(0deg);
+}
+
+.sidebar.collapsed .toggle-icon {
+  transform: rotate(180deg);
+}
+
 /* In collapsed mode, button is below the logo */
 .sidebar.collapsed .logo-container {
   flex-direction: column;

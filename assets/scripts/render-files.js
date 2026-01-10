@@ -54,12 +54,7 @@ function renderFilesGrid() {
             <div class="file-actions" data-file-id="${file.id}">
                 <img src="assets/images/common/three_dot.svg" class="three-dots" />
 
-                <ul class="dropdown-menu file-menu">
-                  <li data-action="file_info"><img src="assets/images/common/action/info.svg" alt="info"/>File Information</li>
-                  <li data-action="rename"><img src="assets/images/common/action/rename.svg" alt="rename"/>Rename</li>
-                  <li data-action="download"><img src="assets/images/common/action/download.svg" alt="download"/>Download</li>
-                  <li data-action="delete" class="danger"><img src="assets/images/common/action/delete.svg" alt="delete"/>Delete</li>
-                </ul>
+                
             </div>
           </div>
           <div class="file-date">${file.date}</div>

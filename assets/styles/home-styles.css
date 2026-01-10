@@ -19,6 +19,7 @@
   min-height: calc(100vh - 32px);
   padding: 28px 160px;
   border-radius: 28px;
+  overflow: hidden;
 }
 
 .welcome-icon {
@@ -68,6 +69,8 @@
   backdrop-filter: blur(23px);
   box-shadow: 5px 4px 27px 0px #0000001A;
   border-radius: 100px;
+    font-family:  var(--outfit);
+
 }
 
 .dropdown-btn img {
@@ -388,11 +391,13 @@
 }
 
 .file-menu {
+  position: absolute;
   right: 0;
+  left: auto;
   top: 26px;
-  min-width: max-content;
-  max-width: 170px;
-  width: 100%;
+  min-width: 140px;
+  max-width: 240px;
+  width: auto;
   z-index: 1100;
   pointer-events: auto;
 }
@@ -400,6 +405,23 @@
 .file-actions.active .file-menu {
   display: block;
 }
+
+/* Ensure file menus align to the trigger and do not stretch full width */
+.dropdown-menu.file-menu {
+  left: auto;
+  right: 0;
+  width: auto;
+  min-width: 140px;
+  max-width: 240px;
+  top: 26px;
+}
+
+/* Flip to left when space to the right is insufficient */
+.dropdown-menu.file-menu.open-left {
+  left: 0 !important;
+  right: auto !important;
+}
+
 
 .three-dots {
   width: 18px;

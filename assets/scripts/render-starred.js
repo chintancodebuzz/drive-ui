@@ -61,6 +61,7 @@ function renderGridViewStarred() {
 
   filesContainer.innerHTML = fileCards.join("");
   console.log(`Rendered ${window.starredFilesData.length} files in grid view`);
+  if (window.__modals && window.__modals.attachFileActionHandlers) window.__modals.attachFileActionHandlers();
 }
 
 // Function to render list/table view
@@ -175,6 +176,7 @@ function renderListViewStarred() {
 
   filesContainer.innerHTML = tableHTML;
   console.log(`Rendered ${window.starredFilesData.length} files in list view`);
+  if (window.__modals && window.__modals.attachFileActionHandlers) window.__modals.attachFileActionHandlers();
 }
 
 // Function to switch between views

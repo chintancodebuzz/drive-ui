@@ -80,7 +80,6 @@
   width: 40px;
   height: 40px;
   border-radius: 8px;
-  /* border: 1px solid #e5e7eb; */
   background: white;
   display: flex;
   align-items: center;
@@ -181,6 +180,7 @@
   backdrop-filter: blur(23px);
   box-shadow: 5px 4px 27px 0px #0000001A;
   border-radius: 100px;
+  font-family:  var(--outfit);
 }
 
 .dropdown-btn img {
@@ -365,7 +365,6 @@
 .file-card {
   background: white;
   border-radius: 12px;
-  /* overflow: hidden; */
   border: 1px solid #e5e7eb;
   transition: all 0.2s ease;
   cursor: pointer;
@@ -470,17 +469,35 @@
 }
 
 .file-menu {
+  position: absolute;
   right: 0;
+  left: auto;
   top: 26px;
-  min-width: max-content;
-  max-width: 170px;
-  width: 100%;
+  min-width: 140px;
+  max-width: 240px;
+  width: auto;
   z-index: 1100;
   pointer-events: auto;
 }
 
 .file-actions.active .file-menu {
   display: block;
+}
+
+/* Ensure file menus align to the trigger and do not stretch full width */
+.dropdown-menu.file-menu {
+  left: auto;
+  right: 0;
+  width: auto;
+  min-width: 140px;
+  max-width: 240px;
+  top: 26px;
+}
+
+/* Flip to left when space to the right is insufficient */
+.dropdown-menu.file-menu.open-left {
+  left: 0 !important;
+  right: auto !important;
 }
 
 .three-dots {
@@ -504,9 +521,6 @@
 .files-grid.list-view {
   display: block;
   background: none;
-  /* border-radius: 12px; */
-  /* border: 1px solid #e5e7eb; */
-  /* overflow: hidden; */
 }
 
 .files-table {
@@ -526,7 +540,6 @@
   font-size: 13px;
   font-weight: 600;
   color: #6b7280;
-  /* text-transform: uppercase; */
   letter-spacing: 0.05em;
 }
 
@@ -635,18 +648,11 @@
 .action-buttons {
   display: flex;
   gap: 8px;
-    justify-content: center;
+  justify-content: center;
   align-items: center;
 }
 
 .action-btn {
-  /* width: 32px;
-  height: 32px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 0.2s ease; */
   border: none;
   background: none;
 }
@@ -693,6 +699,264 @@
   min-width: 150px;
 }
 
+/* Modal Styles - NEW ADDITION */
+.file-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.file-modal.active {
+  display: flex;
+}
+
+.modal-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+}
+
+.modal-content {
+  position: relative;
+  background: white;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  animation: modalSlideIn 0.3s ease;
+  overflow: hidden;
+  z-index: 10000;
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.modal-header h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #6b7280;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+}
+
+.modal-close:hover {
+  background: #f3f4f6;
+  color: #111827;
+}
+
+
+/* File Info Modal Styles */
+.file-info-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.file-icon-large {
+  width: 80px;
+  height: 80px;
+  background: #f3f4f6;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.file-icon-large img {
+  width: 50px;
+  height: 50px;
+}
+
+.file-details-modal {
+  width: 100%;
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.detail-row:last-child {
+  border-bottom: none;
+}
+
+.detail-label {
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.detail-value {
+  color: #111827;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+/* Rename Modal Styles */
+.rename-content {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.file-icon-small {
+  width: 40px;
+  height: 40px;
+  background: #f3f4f6;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.file-icon-small img {
+  width: 24px;
+  height: 24px;
+}
+
+.rename-input-group {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.rename-input {
+  width: 100%;
+  padding: 12px;
+  padding-right: 60px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.rename-input:focus {
+  outline: none;
+  border-color: #3b82f6;
+}
+
+.file-extension {
+  position: absolute;
+  right: 12px;
+  color: #6b7280;
+  font-size: 14px;
+  pointer-events: none;
+}
+
+/* Delete Modal Styles */
+.delete-content {
+  text-align: center;
+}
+
+.warning-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+
+.delete-content p {
+  margin: 10px 0;
+  color: #374151;
+  line-height: 1.5;
+}
+
+.delete-warning {
+  color: #dc2626 !important;
+  font-size: 14px;
+  margin-top: 16px;
+}
+
+/* Modal Footer */
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 20px 24px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.btn-primary,
+.btn-secondary,
+.btn-danger {
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s ease;
+}
+
+.btn-primary {
+  background: #3b82f6;
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #2563eb;
+}
+
+.btn-secondary {
+  background: #f3f4f6;
+  color: #374151;
+}
+
+.btn-secondary:hover {
+  background: #e5e7eb;
+}
+
+.btn-danger {
+  background: #dc2626;
+  color: white;
+}
+
+.btn-danger:hover {
+  background: #b91c1c;
+}
+
 /* Responsive */
 @media (max-width: 1200px) {
   .files-grid {
@@ -732,6 +996,11 @@
   .files-grid.list-view {
     overflow-x: auto;
   }
+  
+  .modal-content {
+    width: 95%;
+    margin: 10px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -747,5 +1016,14 @@
   .rating-icon {
     width: 16px;
     height: 16px;
+  }
+  
+  .rename-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .rename-input-group {
+    width: 100%;
   }
 }
