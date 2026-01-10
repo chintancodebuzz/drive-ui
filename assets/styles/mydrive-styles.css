@@ -42,15 +42,26 @@
 .search-bar {
   flex: 1;
   min-width: 280px;
+  position: relative;
+}
+
+.search-bar img {
+  position: absolute;
+  top: 8px;
+  left: 10px;
 }
 
 .search-input {
   width: 30%;
-  padding: 10px 16px;
+  padding: 10px 16px 10px 40px;
   border: 1px solid #d1d5db;
   border-radius: 24px;
   font-size: 14px;
   background: white;
+}
+
+.search-input:focus {
+  outline: none;
 }
 
 .filters {
@@ -66,6 +77,69 @@
   background: white;
   font-size: 13px;
   cursor: pointer;
+}
+
+.custom-dropdown {
+  position: relative;
+  min-width: fit-content;
+  font-family: inherit;
+}
+
+.dropdown-btn {
+  width: 100%;
+  height: 42px;
+  padding: 0 14px;
+  background: transparent;
+  border: 1px solid #e2e4ea;
+  color: var(--text-base);
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 400;
+  gap: 10px;
+  backdrop-filter: blur(23px);
+  box-shadow: 5px 4px 27px 0px #0000001A;
+  border-radius: 100px;
+}
+
+.dropdown-btn img {
+  width: 14px;
+  transition: transform 0.2s ease;
+}
+
+.custom-dropdown.active .dropdown-btn img {
+  transform: rotate(180deg);
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 48px;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  border: 1px solid #e2e4ea;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  display: none;
+  z-index: 100;
+  overflow: hidden;
+}
+
+.dropdown-menu li {
+  padding: 10px 14px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.dropdown-menu li:hover {
+  background: #f5f7fb;
+}
+
+.custom-dropdown.active .dropdown-menu {
+  display: block;
 }
 
 .mydrive-header {
@@ -127,12 +201,14 @@
   margin-bottom: 10px;
   border-radius: 20px;
 }
+
 .page-header-info {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 10px;
 }
+
 .view_detils {
   display: flex;
   justify-content: center;
@@ -144,6 +220,7 @@
   border-radius: 8px;
   border: var(--primary);
 }
+
 .action_images {
   display: flex;
   justify-content: center;
@@ -217,9 +294,6 @@
 .rating-icon:hover {
   transform: scale(1.1);
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
-}
-
-.star-icon {
 }
 
 .inactive-star-icon {
