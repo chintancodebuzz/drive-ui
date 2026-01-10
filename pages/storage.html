@@ -1,178 +1,152 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Storage - M'Clime</title>
-    <link rel="stylesheet" href="../assets/styles/mydrive-styles.css" />
-    <link rel="stylesheet" href="../assets/styles/storage-styles.css" />
-  </head>
 
-  <body>
-    <div class="main-card">
-      <!-- Header - same as your original storage header -->
-      <header class="header storage-header storage-header-local">
-        <div class="storage-left storage-left-local">
-          <img
-            src="assets/images/header/storage.svg"
-            alt="Storage"
-            class="storage-icon storage-icon-local"
-          />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Storage - M'Clime</title>
+  <link rel="stylesheet" href="../assets/styles/mydrive-styles.css" />
+  <link rel="stylesheet" href="../assets/styles/storage-styles.css" />
+</head>
 
-          <div class="storage-info storage-info-local">
-            <div class="storage-text storage-text-local">
-              <span class="header-title header-title-local">Basic Storage</span>
-              <span class="header-storage header-storage-local">50GB / 100GB</span>
-            </div>
+<body>
+  <div class="main-card">
+    <!-- Header - same as your original storage header -->
+    <header class="header storage-header storage-header-local">
+      <div class="storage-left storage-left-local">
+        <img src="assets/images/header/storage.svg" alt="Storage" class="storage-icon storage-icon-local" />
 
-            <div class="storage-bar storage-bar-local">
-              <span class="storage-progress storage-progress-local" style="width: 50%"></span>
-            </div>
+        <div class="storage-info storage-info-local">
+          <div class="storage-text storage-text-local">
+            <span class="header-title header-title-local">Basic Storage</span>
+            <span class="header-storage header-storage-local">50GB / 100GB</span>
+          </div>
+
+          <div class="storage-bar storage-bar-local">
+            <span class="storage-progress storage-progress-local" style="width: 50%"></span>
           </div>
         </div>
+      </div>
 
-        <div class="storage-actions storage-actions-local">
-          <button class="icon-btn icon-btn-local">
-            <img src="assets/images/header/question.svg" alt="Help" />
+      <div class="storage-actions storage-actions-local">
+        <div class="custom-dropdown help-dropdown">
+          <button class="dropdown-btn icon-btn" type="button">
+            <img src="assets/images/header/question.svg" alt="Help" width="30" height="30" />
           </button>
 
-          <img
-            src="assets/images/header/profile.svg"
-            alt="Profile"
-            class="profile-img profile-img-local"
-          />
-        </div>
-      </header>
-      <!-- My Drive Content - Google Drive style grid -->
-      <div class="mydrive-content">
-        <div class="view-controls">
-          <div class="search-bar">
-            <img src="../assets/images/search.svg" alt="search" />
-            <input
-              type="text"
-              class="search-input"
-              placeholder="Search In My Drive"
-            />
-          </div>
-          <div class="filters">
-            <div class="custom-dropdown" data-filter="category">
-              <button class="dropdown-btn">
-                <span>All Files</span>
-                <img src="../assets/images/arrow-down.svg" />
-              </button>
-              <ul class="dropdown-menu">
-                <li data-value="all">All Files</li>
-                <li data-value="Documents">Documents</li>
-                <li data-value="Images">Images</li>
-                <li data-value="Videos">Videos</li>
-              </ul>
-            </div>
-
-            <div class="custom-dropdown" data-type="type">
-              <button class="dropdown-btn">
-                <span>Type</span>
-                <img src="../assets/images/arrow-down.svg" />
-              </button>
-              <ul class="dropdown-menu">
-                <li data-value="name">Name</li>
-                <li data-value="size">Size</li>
-              </ul>
-            </div>
-
-            <div class="custom-dropdown" data-type="filter">
-              <button class="dropdown-btn">
-                <span>Filter By</span>
-                <img src="../assets/images/arrow-down.svg" />
-              </button>
-              <ul class="dropdown-menu">
-                <li data-value="name">Name</li>
-                <li data-value="size">Size</li>
-              </ul>
-            </div>
-
-            <div class="custom-dropdown" data-filter="sort">
-              <button class="dropdown-btn">
-                <span>Sort By</span>
-                <img src="../assets/images/arrow-down.svg" />
-              </button>
-              <ul class="dropdown-menu">
-                <li data-value="name">Name</li>
-                <li data-value="size">Size</li>
-                <li data-value="date">Date</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="mydrive-header">
-          <div class="page-title">Storage</div>
+          <ul class="dropdown-menu help-menu">
+            <li>Privacy Policy</li>
+            <li>Terms of Use</li>
+            <li>Contact Us</li>
+            <li>Send Feedback</li>
+          </ul>
         </div>
 
-        <div class="page-header">
-          <div class="page-header-info">
-            <img src="../assets/images/mydrive/figam_wb.svg" alt="" />
-            <p>
-              <span>Cloud Dashboard.fig </span> • <span> 1.5 GB </span> •
-              <span> Sep 28, 2025</span>
-            </p>
-            <button class="view_detils">
-              <img
-                src="../assets/images/mydrive/search_docs.svg"
-                alt="search"
-                width="16"
-                height="16"
-              />
-              View Details
+        <img src="assets/images/header/profile.svg" alt="Profile" class="profile-img profile-img-local" />
+      </div>
+    </header>
+    <!-- My Drive Content - Google Drive style grid -->
+    <div class="mydrive-content">
+      <div class="view-controls">
+        <div class="search-bar">
+          <img src="../assets/images/search.svg" alt="search" />
+          <input type="text" class="search-input" placeholder="Search In My Drive" />
+        </div>
+        <div class="filters">
+          <div class="custom-dropdown" data-filter="category">
+            <button class="dropdown-btn">
+              <span>All Files</span>
+              <img src="../assets/images/arrow-down.svg" />
             </button>
-          </div>
-          <div class="action_images action_images-local">
-            <img
-              src="../assets/images/mydrive/info_circle.svg"
-              alt="info"
-              width="22"
-              height="22"
-            />
-            <img
-              src="../assets/images/mydrive/download.svg"
-              alt="download"
-              width="22"
-              height="22"
-            />
-            <img
-              src="../assets/images/mydrive/rename.svg"
-              alt="rename"
-              width="22"
-              height="22"
-            />
-            <img
-              src="../assets/images/mydrive/delete.svg"
-              alt="delete"
-              width="22"
-              height="22"
-            />
+            <ul class="dropdown-menu">
+              <li data-value="all">All Files</li>
+              <li data-value="Documents">Documents</li>
+              <li data-value="Images">Images</li>
+              <li data-value="Videos">Videos</li>
+            </ul>
           </div>
 
-          <!-- Storage CTA (progress + Get More Storage) -->
-        </div>
-        <div class="storage-cta">
-          <div class="storage-cta-left">
-            <div class="cta-title">Basic Storage</div>
-            <div class="cta-sub">50GB / 100GB</div>
-            <div class="storage-cta-bar">
-              <span class="storage-cta-progress" style="width: 50%"></span>
-            </div>
+          <div class="custom-dropdown" data-type="type">
+            <button class="dropdown-btn">
+              <span>Type</span>
+              <img src="../assets/images/arrow-down.svg" />
+            </button>
+            <ul class="dropdown-menu">
+              <li data-value="name">Name</li>
+              <li data-value="size">Size</li>
+            </ul>
+          </div>
+
+          <div class="custom-dropdown" data-type="filter">
+            <button class="dropdown-btn">
+              <span>Filter By</span>
+              <img src="../assets/images/arrow-down.svg" />
+            </button>
+            <ul class="dropdown-menu">
+              <li data-value="name">Name</li>
+              <li data-value="size">Size</li>
+            </ul>
+          </div>
+
+          <div class="custom-dropdown" data-filter="sort">
+            <button class="dropdown-btn">
+              <span>Sort By</span>
+              <img src="../assets/images/arrow-down.svg" />
+            </button>
+            <ul class="dropdown-menu">
+              <li data-value="name">Name</li>
+              <li data-value="size">Size</li>
+              <li data-value="date">Date</li>
+            </ul>
           </div>
         </div>
-        <div class="storage-cta-action">
-          <button class="get-storage-btn" onclick="location.href='plan.html'">
-            Get More Storage
-            <img src="../assets/images/storage/more_storage.svg" alt=""/>
+      </div>
+      <div class="mydrive-header">
+        <div class="page-title">Storage</div>
+      </div>
+
+      <div class="page-header">
+        <div class="page-header-info">
+          <img src="../assets/images/mydrive/figam_wb.svg" alt="" />
+          <p>
+            <span>Cloud Dashboard.fig </span> • <span> 1.5 GB </span> •
+            <span> Sep 28, 2025</span>
+          </p>
+          <button class="view_detils">
+            <img src="../assets/images/mydrive/search_docs.svg" alt="search" width="16" height="16" />
+            View Details
           </button>
         </div>
-
-        <!-- Files list (dynamic) -->
-        <div class="storage-files" aria-live="polite">
-          <!-- render-storage.js will populate this container -->
+        <div class="action_images action_images-local">
+          <img src="../assets/images/mydrive/info_circle.svg" alt="info" width="22" height="22" />
+          <img src="../assets/images/mydrive/download.svg" alt="download" width="22" height="22" />
+          <img src="../assets/images/mydrive/rename.svg" alt="rename" width="22" height="22" />
+          <img src="../assets/images/mydrive/delete.svg" alt="delete" width="22" height="22" />
         </div>
+
+        <!-- Storage CTA (progress + Get More Storage) -->
+      </div>
+      <div class="storage-cta">
+        <div class="storage-cta-left">
+          <div class="cta-title">Basic Storage</div>
+          <div class="cta-sub">50GB / 100GB</div>
+          <div class="storage-cta-bar">
+            <span class="storage-cta-progress" style="width: 50%"></span>
+          </div>
+        </div>
+      </div>
+      <div class="storage-cta-action">
+        <button class="get-storage-btn" onclick="location.href='plan.html'">
+          Get More Storage
+          <img src="../assets/images/storage/more_storage.svg" alt="" />
+        </button>
+      </div>
+
+      <!-- Files list (dynamic) -->
+      <div class="storage-files" aria-live="polite">
+        <!-- render-storage.js will populate this container -->
+      </div>
     </div>
-  </body>
+</body>
+
 </html>
