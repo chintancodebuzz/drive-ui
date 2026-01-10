@@ -63,12 +63,12 @@
   overflow: hidden;
 }
 
-.storage-progress {
+/* .storage-progress {
   display: block;
   height: 100%;
   background: linear-gradient(90deg, #3b82f6, #8b5cf6);
   border-radius: 3px;
-}
+} */
 
 .storage-actions {
   display: flex;

@@ -14,17 +14,17 @@ class Sidebar {
     await this.loadSidebar();
 
     // Initialize references
-    this.sidebar = document.getElementById('sidebar');
-    this.mainContent = document.getElementById('mainContent');
-    this.toggleBtn = document.getElementById('toggleBtn');
-    this.mobileMenuToggle = document.getElementById('mobileMenuToggle');
+    this.sidebar = document.getElementById("sidebar");
+    this.mainContent = document.getElementById("mainContent");
+    this.toggleBtn = document.getElementById("toggleBtn");
+    this.mobileMenuToggle = document.getElementById("mobileMenuToggle");
 
-    if (this.toggleBtn && this.toggleBtn.querySelector('i')) {
-      this.toggleIcon = this.toggleBtn.querySelector('i');
+    if (this.toggleBtn && this.toggleBtn.querySelector("i")) {
+      this.toggleIcon = this.toggleBtn.querySelector("i");
     }
 
-    if (this.mobileMenuToggle && this.mobileMenuToggle.querySelector('i')) {
-      this.mobileToggleIcon = this.mobileMenuToggle.querySelector('i');
+    if (this.mobileMenuToggle && this.mobileMenuToggle.querySelector("i")) {
+      this.mobileToggleIcon = this.mobileMenuToggle.querySelector("i");
     }
 
     // Setup event listeners
@@ -33,9 +33,13 @@ class Sidebar {
     this.updateToggleIcon();
 
     // Listen for page changes to update active state
-    document.addEventListener('pagechange', (e) => {
+    document.addEventListener("pagechange", (e) => {
       this.updateActiveNavItem(e.detail.page);
     });
+
+    // Set initial active item from URL hash
+    const initialPage = (window.location.hash || "").replace("#", "") || "home";
+    this.updateActiveNavItem(initialPage);
 
     this.initialized = true;
   }
@@ -43,21 +47,20 @@ class Sidebar {
   async loadSidebar() {
     try {
       // Use the correct relative path
-      const response = await fetch('components/sidebar/sidebar.html');
+      const response = await fetch("components/sidebar/sidebar.html");
 
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
 
       const sidebarHTML = await response.text();
-      document.getElementById('sidebar-container').innerHTML = sidebarHTML;
+      document.getElementById("sidebar-container").innerHTML = sidebarHTML;
 
       // Re-initialize references after loading HTML
-      this.sidebar = document.getElementById('sidebar');
-      this.toggleBtn = document.getElementById('toggleBtn');
-
+      this.sidebar = document.getElementById("sidebar");
+      this.toggleBtn = document.getElementById("toggleBtn");
     } catch (error) {
-      console.error('Error loading sidebar:', error);
+      console.error("Error loading sidebar:", error);
 
       // Fallback: Create sidebar directly if fetch fails
       this.createSidebarFallback();
@@ -98,35 +101,35 @@ class Sidebar {
           <ul class="nav-list">
             <li class="nav-item">
               <a href="#home" class="nav-link" data-page="home">
-                <img src="assets/images/sidebar/home.svg" alt="Home" />
+                <span class="icon-bg"><img src="assets/images/sidebar/home.svg" alt="Home" /></span>
                 <span>Home</span>
                 <div class="tooltip">Home</div>
               </a>
             </li>
             <li class="nav-item">
               <a href="#mydrive" class="nav-link" data-page="mydrive">
-                <img src="assets/images/sidebar/drive.svg" alt="My Drive" />
+                <span class="icon-bg"><img src="assets/images/sidebar/drive.svg" alt="My Drive" /></span>
                 <span>My Drive</span>
                 <div class="tooltip">My Drive</div>
               </a>
             </li>
             <li class="nav-item">
               <a href="#starred" class="nav-link" data-page="starred">
-                <img src="assets/images/sidebar/starred.svg" alt="Starred" />
+                <span class="icon-bg"><img src="assets/images/sidebar/starred.svg" alt="Starred" /></span>
                 <span>Starred</span>
                 <div class="tooltip">Starred</div>
               </a>
             </li>
             <li class="nav-item">
               <a href="#bin" class="nav-link" data-page="bin">
-                <img src="assets/images/sidebar/bin.svg" alt="Bin" />
+                <span class="icon-bg"><img src="assets/images/sidebar/bin.svg" alt="Bin" /></span>
                 <span>Bin</span>
                 <div class="tooltip">Bin</div>
               </a>
             </li>
             <li class="nav-item">
               <a href="#storage" class="nav-link" data-page="storage">
-                <img src="assets/images/sidebar/storages.svg" alt="Storage" />
+                <span class="icon-bg"><img src="assets/images/sidebar/storages.svg" alt="Storage" /></span>
                 <span>Storage</span>
                 <div class="tooltip">Storage</div>
               </a>
@@ -161,27 +164,29 @@ class Sidebar {
       </aside>
     `;
 
-    document.getElementById('sidebar-container').innerHTML = fallbackHTML;
+    document.getElementById("sidebar-container").innerHTML = fallbackHTML;
   }
 
   setupEventListeners() {
     // We'll attach event listeners after a small delay to ensure DOM is ready
     setTimeout(() => {
       // Toggle sidebar
-      this.toggleBtn = document.getElementById('toggleBtn');
+      this.toggleBtn = document.getElementById("toggleBtn");
       if (this.toggleBtn) {
-        this.toggleBtn.addEventListener('click', () => this.toggleSidebar());
+        this.toggleBtn.addEventListener("click", () => this.toggleSidebar());
       }
 
       // Mobile menu toggle
-      this.mobileMenuToggle = document.getElementById('mobileMenuToggle');
+      this.mobileMenuToggle = document.getElementById("mobileMenuToggle");
       if (this.mobileMenuToggle) {
-        this.mobileMenuToggle.addEventListener('click', () => this.toggleSidebar());
+        this.mobileMenuToggle.addEventListener("click", () =>
+          this.toggleSidebar()
+        );
       }
 
       // Navigation links
-      document.addEventListener('click', (e) => {
-        const navLink = e.target.closest('.nav-link');
+      document.addEventListener("click", (e) => {
+        const navLink = e.target.closest(".nav-link");
         if (navLink) {
           e.preventDefault();
           const page = navLink.dataset.page;
@@ -189,19 +194,21 @@ class Sidebar {
         }
       });
 
-      const upgradePlanBtn = document.getElementById('upgradePlanBtn');
+      const upgradePlanBtn = document.getElementById("upgradePlanBtn");
       if (upgradePlanBtn) {
-        upgradePlanBtn.addEventListener('click', () => this.navigateTo('plan'));
+        upgradePlanBtn.addEventListener("click", () => this.navigateTo("plan"));
       }
 
       // Close sidebar when clicking outside on mobile
-      document.addEventListener('click', (e) => {
-        if (this.isMobile() &&
+      document.addEventListener("click", (e) => {
+        if (
+          this.isMobile() &&
           this.sidebar &&
           !this.sidebar.contains(e.target) &&
           this.mobileMenuToggle &&
           !this.mobileMenuToggle.contains(e.target) &&
-          this.sidebar.classList.contains('mobile-open')) {
+          this.sidebar.classList.contains("mobile-open")
+        ) {
           this.closeMobileSidebar();
         }
       });
@@ -215,14 +222,14 @@ class Sidebar {
   updateToggleIcon() {
     if (!this.toggleIcon) {
       // Try to get toggle icon again
-      this.toggleIcon = document.querySelector('#toggleBtn i');
+      this.toggleIcon = document.querySelector("#toggleBtn i");
     }
 
     if (this.toggleIcon && this.sidebar) {
-      if (this.sidebar.classList.contains('collapsed')) {
-        this.toggleIcon.setAttribute('data-feather', 'chevrons-right');
+      if (this.sidebar.classList.contains("collapsed")) {
+        this.toggleIcon.setAttribute("data-feather", "chevrons-right");
       } else {
-        this.toggleIcon.setAttribute('data-feather', 'chevrons-left');
+        this.toggleIcon.setAttribute("data-feather", "chevrons-left");
       }
       feather.replace();
     }
@@ -230,69 +237,69 @@ class Sidebar {
 
   toggleSidebar() {
     if (!this.sidebar) {
-      this.sidebar = document.getElementById('sidebar');
-      this.mainContent = document.getElementById('mainContent');
+      this.sidebar = document.getElementById("sidebar");
+      this.mainContent = document.getElementById("mainContent");
     }
 
     if (this.isMobile()) {
-      this.sidebar.classList.toggle('mobile-open');
+      this.sidebar.classList.toggle("mobile-open");
       if (!this.mobileToggleIcon) {
-        this.mobileToggleIcon = document.querySelector('#mobileMenuToggle i');
+        this.mobileToggleIcon = document.querySelector("#mobileMenuToggle i");
       }
       if (this.mobileToggleIcon) {
         this.mobileToggleIcon.setAttribute(
-          'data-feather',
-          this.sidebar.classList.contains('mobile-open') ? 'x' : 'menu'
+          "data-feather",
+          this.sidebar.classList.contains("mobile-open") ? "x" : "menu"
         );
         feather.replace();
       }
     } else {
-      this.sidebar.classList.toggle('collapsed');
-      this.mainContent.classList.toggle('collapsed');
+      this.sidebar.classList.toggle("collapsed");
+      this.mainContent.classList.toggle("collapsed");
       this.updateToggleIcon();
     }
   }
 
   closeMobileSidebar() {
-    this.sidebar.classList.remove('mobile-open');
+    this.sidebar.classList.remove("mobile-open");
     if (this.mobileToggleIcon) {
-      this.mobileToggleIcon.setAttribute('data-feather', 'menu');
+      this.mobileToggleIcon.setAttribute("data-feather", "menu");
       feather.replace();
     }
   }
 
   handleResize() {
     if (!this.sidebar) {
-      this.sidebar = document.getElementById('sidebar');
-      this.mainContent = document.getElementById('mainContent');
+      this.sidebar = document.getElementById("sidebar");
+      this.mainContent = document.getElementById("mainContent");
     }
 
     if (this.isMobile()) {
-      this.sidebar.classList.add('collapsed');
-      this.sidebar.classList.remove('mobile-open');
-      this.mainContent.classList.add('collapsed');
+      this.sidebar.classList.add("collapsed");
+      this.sidebar.classList.remove("mobile-open");
+      this.mainContent.classList.add("collapsed");
       if (this.mobileMenuToggle) {
-        this.mobileMenuToggle.style.display = 'flex';
+        this.mobileMenuToggle.style.display = "flex";
       }
       if (!this.mobileToggleIcon) {
-        this.mobileToggleIcon = document.querySelector('#mobileMenuToggle i');
+        this.mobileToggleIcon = document.querySelector("#mobileMenuToggle i");
       }
       if (this.mobileToggleIcon) {
-        this.mobileToggleIcon.setAttribute('data-feather', 'menu');
+        this.mobileToggleIcon.setAttribute("data-feather", "menu");
       }
     } else {
       if (this.mobileMenuToggle) {
-        this.mobileMenuToggle.style.display = 'none';
+        this.mobileMenuToggle.style.display = "none";
       }
-      this.sidebar.classList.remove('mobile-open');
+      this.sidebar.classList.remove("mobile-open");
     }
     feather.replace();
   }
 
   navigateTo(page) {
     // Dispatch custom event for page change
-    const event = new CustomEvent('pagechange', {
-      detail: { page: page }
+    const event = new CustomEvent("pagechange", {
+      detail: { page: page },
     });
     document.dispatchEvent(event);
 
@@ -307,22 +314,22 @@ class Sidebar {
 
   updateActiveNavItem(page) {
     // Remove active class from all nav items
-    document.querySelectorAll('.nav-link').forEach(link => {
-      link.classList.remove('active');
+    document.querySelectorAll(".nav-link").forEach((link) => {
+      link.classList.remove("active");
     });
 
     // Add active class to current page
     const activeLink = document.querySelector(`.nav-link[data-page="${page}"]`);
     if (activeLink) {
-      activeLink.classList.add('active');
+      activeLink.classList.add("active");
     }
   }
 }
 
 // Initialize sidebar when DOM is loaded
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
   window.sidebar = new Sidebar();
-  window.sidebar.init().catch(error => {
-    console.error('Failed to initialize sidebar:', error);
+  window.sidebar.init().catch((error) => {
+    console.error("Failed to initialize sidebar:", error);
   });
 });
