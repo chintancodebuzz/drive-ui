@@ -276,61 +276,93 @@
 
 .files-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
 }
 
 .file-card {
   background: white;
   border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
-  padding: 12px;
-  transition: transform 0.2s;
-  border: 1px solid var(--border);
+  /* overflow: hidden; */
+  border: 1px solid #e5e7eb;
+  transition: all 0.2s ease;
   cursor: pointer;
   position: relative;
 }
 
-.file-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+.file-card:hover:not(:has(.file-actions.active)) {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+  border-color: #cbd5e1;
+  z-index: 2;
 }
 
-.file-card-header {
+.file-card:has(.file-actions.active) {
+  z-index: 100;
+  transform: translateY(-4px);
+}
+
+.file-actions.active {
   position: relative;
-  margin-bottom: 10px;
+  z-index: 1000;
 }
 
-.file-image {
+.file-thumbnail {
   width: 100%;
-  height: 100px;
-  object-fit: cover;
-  border-radius: 10px;
+  height: 140px;
   background: linear-gradient(135deg, #f3f4f6, #e5e7eb);
-}
-
-.file-rating {
-  position: absolute;
-  top: 6px;
-  right: 6px;
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+  border-top-right-radius: 12px;
+  border-top-left-radius: 12px;
+}
+
+.file-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-top-right-radius: 12px;
+  border-top-left-radius: 12px;
+}
+
+.file-card.folder .file-thumbnail {
+  background: linear-gradient(135deg, #60a5fa, #a78bfa);
+}
+
+/* Star rating styles */
+.file-rating {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  z-index: 2;
 }
 
 .rating-icon {
   width: 20px;
   height: 20px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  padding: 3px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  transition: all 0.2s ease;
+}
+
+.rating-icon:hover {
+  transform: scale(1.1);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+.inactive-star-icon {
+  opacity: 0.8;
 }
 
 .file-info {
-  display: flex;
-  flex-direction: column;
+  padding: 12px 14px;
 }
 
 .file-name-wrapper {
@@ -342,21 +374,38 @@
 }
 
 .file-name {
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 600;
   color: #111827;
-  flex: 1;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  flex: 1;
+}
+
+.file-actions {
+  position: relative;
+}
+
+.file-menu {
+  right: 0;
+  top: 26px;
+  min-width: max-content;
+  max-width: 170px;
+  width: 100%;
+  z-index: 1100;
+  pointer-events: auto;
+}
+
+.file-actions.active .file-menu {
+  display: block;
 }
 
 .three-dots {
-  width: 16px;
-  height: 16px;
+  width: 18px;
+  height: 18px;
+  opacity: 0.6;
   cursor: pointer;
-  opacity: 0.7;
-  transition: opacity 0.2s;
   flex-shrink: 0;
 }
 
@@ -365,12 +414,67 @@
 }
 
 .file-date {
-  font-size: 10px;
-  color: var(--text-tertiary);
+  font-size: 11px;
+  color: #6b7280;
 }
 
+.dropdown-menu {
+  position: absolute;
+  top: 18px;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  border: 1px solid #e2e4ea;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  display: none;
+  z-index: 100;
+  overflow: hidden;
+}
 
+.dropdown-menu li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.dropdown-menu li img {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.dropdown-menu li:first-child {
+  border-bottom: 1px solid #eef2f7;
+  padding-bottom: 12px;
+}
+
+.dropdown-menu li.danger {
+  color: #dc2626;
+}
+
+.dropdown-menu li:hover {
+  background: #f5f7fb;
+}
+
+.custom-dropdown.active .dropdown-menu {
+  display: block;
+} 
 /* Responsive styles */
+@media (max-width: 1200px) {
+  .files-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+  }
+
+  .files-table {
+    min-width: 600px;
+  }
+}
+
 @media (max-width: 768px) {
   .main-card {
     padding: 20px;
@@ -443,7 +547,6 @@
     padding: 20px;
     margin-bottom: 24px;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     color: #333;
   }
 

@@ -46,9 +46,10 @@ function renderGridViewStarred() {
                 <img src="../assets/images/common/three_dot.svg" class="three-dots" />
 
                 <ul class="dropdown-menu file-menu">
-                  <li data-action="rename">Rename</li>
-                  <li data-action="download">Download</li>
-                  <li data-action="delete" class="danger">Delete</li>
+                  <li data-action="file_info"><img src="assets/images/common/action/info.svg" alt="info"/>File Information</li>
+                  <li data-action="rename"><img src="assets/images/common/action/rename.svg" alt="rename"/>Rename</li>
+                  <li data-action="download"><img src="assets/images/common/action/download.svg" alt="download"/>Download</li>
+                  <li data-action="delete" class="danger"><img src="assets/images/common/action/delete.svg" alt="delete"/>Delete</li>
                 </ul>
             </div>
           </div>
@@ -156,9 +157,11 @@ function renderListViewStarred() {
                   />
 
                   <ul class="dropdown-menu file-menu">
-                    <li data-action="restore">Restore</li>
-                    <li data-action="delete" class="danger">Delete Permanently</li>
-                  </ul>
+                  <li data-action="file_info"><img src="assets/images/common/action/info.svg" alt="info"/>File Information</li>
+                  <li data-action="rename"><img src="assets/images/common/action/rename.svg" alt="rename"/>Rename</li>
+                  <li data-action="download"><img src="assets/images/common/action/download.svg" alt="download"/>Download</li>
+                  <li data-action="delete" class="danger"><img src="assets/images/common/action/delete.svg" alt="delete"/>Delete</li>
+                </ul>
                 </div>
               </div>
             </td>

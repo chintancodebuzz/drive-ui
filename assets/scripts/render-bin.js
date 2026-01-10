@@ -50,8 +50,8 @@ function renderGridViewBin() {
               />
 
               <ul class="dropdown-menu file-menu">
-                <li data-action="restore">Restore</li>
-                <li data-action="delete" class="danger">Delete Permanently</li>
+                <li data-action="restore"><img src="assets/images/common/action/info.svg" alt="restore"/>Restore</li>
+                <li data-action="delete" class="danger"><img src="assets/images/common/action/delete.svg" alt="delete"/>Delete Permanently</li>
               </ul>
             </div>
           </div>
@@ -159,8 +159,8 @@ function renderListViewBin() {
                   />
 
                   <ul class="dropdown-menu file-menu">
-                    <li data-action="restore">Restore</li>
-                    <li data-action="delete" class="danger">Delete Permanently</li>
+                    <li data-action="restore"><img src="assets/images/common/action/info.svg" alt="restore"/>Restore</li>
+                    <li data-action="delete" class="danger"><img src="assets/images/common/action/delete.svg" alt="delete"/>Delete Permanently</li>
                   </ul>
                 </div>
               </div>
