@@ -66,8 +66,6 @@
   overflow: hidden;
 }
 
-
-
 .storage-actions {
   display: flex;
   align-items: center;
@@ -184,6 +182,37 @@
 .dropdown-btn img {
   width: 14px;
   transition: transform 0.2s ease;
+}
+
+.help-dropdown {
+  position: relative;
+}
+
+.help-dropdown .help-menu {
+  top: 32px;
+  right: 0;
+  left: auto;
+  min-width: 180px;
+}
+
+.help-dropdown.active .dropdown-btn img {
+  transform: none !important;
+}
+
+.help-dropdown .dropdown-btn img {
+  width: 30px !important;
+}
+
+.help-dropdown .dropdown-btn {
+  background: transparent !important;
+  padding: 0;
+  height: auto;
+  border: 0;
+  display: contents;
+}
+
+.help-dropdown .dropdown-menu li:hover {
+  background: #f5f7fb;
 }
 
 .custom-dropdown.active .dropdown-btn img {

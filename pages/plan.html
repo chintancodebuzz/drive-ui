@@ -18,9 +18,18 @@
         </div>
 
         <div class="storage-actions">
-            <button class="icon-btn">
-                <img src="../assets/images/header/question.svg" alt="Help" />
-            </button>
+            <div class="custom-dropdown help-dropdown">
+                <button class="dropdown-btn icon-btn" type="button">
+                    <img src="assets/images/header/question.svg" alt="Help" width="30" height="30" />
+                </button>
+
+                <ul class="dropdown-menu help-menu">
+                    <li>Privacy Policy</li>
+                    <li>Terms of Use</li>
+                    <li>Contact Us</li>
+                    <li>Send Feedback</li>
+                </ul>
+            </div>
 
             <img src="../assets/images/header/profile.svg" alt="Profile" class="profile-img" />
         </div>
@@ -211,6 +220,101 @@
 
     .main-card .storage-header .storage-info .storage-bar {
         width: 100%;
+    }
+
+
+    .custom-dropdown {
+        position: relative;
+        min-width: fit-content;
+        font-family: inherit;
+    }
+
+    .dropdown-btn {
+        width: 100%;
+        height: 42px;
+        padding: 0 14px;
+        background: transparent;
+        border: 1px solid #e2e4ea;
+        color: var(--text-base);
+        border-radius: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 400;
+        gap: 10px;
+        backdrop-filter: blur(23px);
+        box-shadow: 5px 4px 27px 0px #0000001A;
+        border-radius: 100px;
+    }
+
+    .dropdown-btn img {
+        width: 14px;
+        transition: transform 0.2s ease;
+    }
+
+    .help-dropdown {
+        position: relative;
+    }
+
+    .help-dropdown .help-menu {
+        top: 32px;
+        right: 0;
+        left: auto;
+        min-width: 180px;
+    }
+
+    .help-dropdown.active .dropdown-btn img {
+        transform: none !important;
+    }
+
+    .help-dropdown .dropdown-btn img {
+        width: 30px !important;
+    }
+
+    .help-dropdown .dropdown-btn {
+        background: transparent !important;
+        padding: 0;
+        height: auto;
+        border: 0;
+        display: contents;
+    }
+
+    .help-dropdown .dropdown-menu li:hover {
+        background: #f5f7fb;
+    }
+
+    .custom-dropdown.active .dropdown-btn img {
+        transform: rotate(180deg);
+    }
+
+    .dropdown-menu {
+        position: absolute;
+        top: 48px;
+        left: 0;
+        width: 100%;
+        background: #fff;
+        border: 1px solid #e2e4ea;
+        border-radius: 10px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+        display: none;
+        z-index: 100;
+        overflow: hidden;
+    }
+
+    .dropdown-menu li {
+        padding: 10px 14px;
+        cursor: pointer;
+        font-size: 14px;
+    }
+
+    .dropdown-menu li:hover {
+        background: #f5f7fb;
+    }
+
+    .custom-dropdown.active .dropdown-menu {
+        display: block;
     }
 
     .plan-content {
