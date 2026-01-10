@@ -1,41 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>M'Clime - Dashboard</title>
-    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
-    <link rel="stylesheet" href="assets/styles/common.css" />
-    <link rel="stylesheet" href="styles/main.css" />
-  </head>
-  <body>
-    <div class="dashboard-wrapper">
-      <!-- Mobile Menu Toggle Button -->
-      <button
-        class="mobile-menu-toggle"
-        id="mobileMenuToggle"
-        style="display: none"
-      >
-        <i data-feather="menu"></i>
-      </button>
 
-      <!-- Sidebar loaded dynamically -->
-      <div id="sidebar-container"></div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>M'Clime - Dashboard</title>
+  <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+  <link rel="stylesheet" href="assets/styles/common.css" />
+  <link rel="stylesheet" href="styles/main.css" />
+</head>
 
-      <!-- Main Content Area -->
-      <main class="main-content" id="mainContent">
-        <!-- Page content will be loaded here -->
-        <div id="page-content"></div>
-      </main>
-    </div>
+<body>
+  <div class="dashboard-wrapper">
+    <!-- Mobile Menu Toggle Button -->
+    <button class="mobile-menu-toggle" id="mobileMenuToggle" style="display: none">
+      <i data-feather="menu"></i>
+    </button>
 
-    <!-- Scripts -->
-    <script src="assets/scripts/files-data.js"></script>
-    <script src="assets/scripts/render-files.js"></script>
-    <script src="components/sidebar/sidebar.js"></script>
-    <script src="scripts/app.js"></script>
-    <script>
-      feather.replace();
-    </script>
-  </body>
+    <!-- Sidebar loaded dynamically -->
+    <div id="sidebar-container"></div>
+
+    <!-- Main Content Area -->
+    <main class="main-content" id="mainContent">
+      <!-- Page content will be loaded here -->
+      <div id="page-content"></div>
+    </main>
+  </div>
+
+  <!-- Scripts -->
+  <script src="assets/scripts/files-data.js"></script>
+  <script src="assets/scripts/render-files.js"></script>
+  <script src="assets/scripts/dropdown/dropdown.js"></script>
+  <script src="components/sidebar/sidebar.js"></script>
+  <script src="scripts/app.js"></script>
+  <script>
+    feather.replace();
+  </script>
+</body>
+
 </html>
