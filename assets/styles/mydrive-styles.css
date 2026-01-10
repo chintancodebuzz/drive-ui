@@ -178,7 +178,7 @@
   font-weight: 400;
   gap: 10px;
   backdrop-filter: blur(23px);
-  box-shadow: 5px 4px 27px 0px #0000001A;
+  box-shadow: 5px 4px 27px 0px #0000001a;
   border-radius: 100px;
   font-family:  var(--outfit);
 }
@@ -675,6 +675,7 @@
 
 /* Column widths */
 .th-name {
+  width: 30%;
   width: 30%;
   min-width: 250px;
 }

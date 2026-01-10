@@ -8,6 +8,8 @@ class PageLoader {
       bin: "pages/bin.html",
       storage: "pages/storage.html",
       plan: "pages/plan.html",
+      privacypolicy:"pages/privacypolicy.html",
+      termsofuse:"pages/terms-of-use.html",
     };
 
     this.init();

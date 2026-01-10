@@ -89,6 +89,17 @@
   min-width: 180px;
 }
 
+.help-menu li a {
+  display: block;
+  width: 100%;
+  text-decoration: none;
+  color: inherit;
+}
+
+.help-menu li a:hover {
+  background: #f5f7fb;
+}
+
 .help-dropdown.active .dropdown-btn img {
   transform: none !important;
 }
@@ -484,7 +495,8 @@
 
 .custom-dropdown.active .dropdown-menu {
   display: block;
-} 
+}
+
 /* Responsive styles */
 @media (max-width: 1200px) {
   .files-grid {
