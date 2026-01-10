@@ -13,14 +13,92 @@
   min-height: calc(100vh - 32px);
 }
 
-/* Reuse your existing header styles (just copy them here or import) */
+/* Header Styles */
 .storage-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #e5e7eb;
 }
 
-/* ... paste all your original .storage-left, .storage-info, .storage-bar, etc. styles here ... */
+.storage-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.storage-icon {
+  width: 40px;
+  height: 40px;
+}
+
+.storage-info {
+  flex: 1;
+}
+
+.storage-text {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 6px;
+}
+
+.header-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.header-storage {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.storage-bar {
+  height: 6px;
+  background: #e5e7eb;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.storage-progress {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+  border-radius: 3px;
+}
+
+.storage-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.icon-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.icon-btn:hover {
+  background: #f3f4f6;
+}
+
+.profile-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  object-fit: cover;
+}
 
 .mydrive-content {
   background: url("../images/common/global_bg.svg") center / cover no-repeat,
@@ -198,7 +276,7 @@
   align-items: center;
   background-color: #fff;
   padding: 10px 12px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   border-radius: 20px;
 }
 
@@ -228,6 +306,7 @@
   gap: 10px;
 }
 
+/* Grid View Styles */
 .files-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -339,7 +418,205 @@
   color: #6b7280;
 }
 
+/* List View Styles */
+.files-grid.list-view {
+  display: block;
+  background: none;
+  /* border-radius: 12px; */
+  /* border: 1px solid #e5e7eb; */
+  overflow: hidden;
+}
+
+.files-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 800px;
+}
+
+.files-table thead {
+  background: #f9fafb;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.files-table th {
+  padding: 16px 20px;
+  text-align: left;
+  font-size: 13px;
+  font-weight: 600;
+  color: #6b7280;
+  /* text-transform: uppercase; */
+  letter-spacing: 0.05em;
+}
+
+.table-header-cell {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.sort-icon {
+  width: 12px;
+  height: 12px;
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.sort-icon:hover {
+  opacity: 1;
+}
+
+.files-table td {
+  padding: 16px 20px;
+  border-bottom: 1px solid #f3f4f6;
+  font-size: 14px;
+  color: #374151;
+  vertical-align: middle;
+}
+
+.files-table tr:last-child td {
+  border-bottom: none;
+}
+
+.files-table tr:hover {
+  background: #2152910a;
+}
+
+/* File info cell in table */
+.file-info-cell {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.file-icon-wrapper {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.file-icon {
+  width: 38px;
+  height: 38px;
+}
+
+.file-star-icon {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  width: 16px;
+  height: 16px;
+  background: white;
+  border-radius: 50%;
+  padding: 2px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.file-details {
+  flex: 1;
+  min-width: 0;
+}
+
+.file-name-table {
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.file-format {
+  font-size: 12px;
+  color: #6b7280;
+  justify-content: start;
+  align-items: center;
+  display: flex;
+  gap: 3px;
+}
+
+/* Category badge */
+.category-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  background: #e0e7ff;
+  color: #4338ca;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* Actions in table */
+.action-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.action-btn {
+  /* width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease; */
+  border: none;
+  background: none;
+}
+
+.action-btn:hover {
+  background: none;
+  transform: translateY(-1px);
+  cursor: pointer;
+}
+
+.action-btn img {
+  opacity: 0.7;
+  width: 24px;
+  height: 24px;
+}
+
+.action-btn:hover img {
+  opacity: 1;
+}
+
+/* Column widths */
+.th-name {
+  width:30%;
+  min-width: 250px;
+}
+.th-category {
+  width: 20%;
+  min-width: 120px;
+}
+.th-date {
+  width: 20%;
+  min-width: 120px;
+}
+.th-size {
+  width: 15%;
+  min-width: 100px;
+}
+.th-actions {
+  width: 15%;
+  min-width: 150px;
+}
+
 /* Responsive */
+@media (max-width: 1200px) {
+  .files-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+  }
+
+  .files-table {
+    min-width: 600px;
+  }
+}
+
 @media (max-width: 768px) {
   .files-grid {
     grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
@@ -359,19 +636,28 @@
     width: 18px;
     height: 18px;
   }
+
+  .search-input {
+    width: 100%;
+  }
+
+  .files-grid.list-view {
+    overflow-x: auto;
+  }
 }
 
 @media (max-width: 480px) {
   .files-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 12px;
   }
 
   .file-thumbnail {
-    height: 140px;
+    height: 100px;
   }
 
   .rating-icon {
-    width: 22px;
-    height: 22px;
+    width: 16px;
+    height: 16px;
   }
 }
