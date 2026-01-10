@@ -71,6 +71,11 @@ document.addEventListener("DOMContentLoaded", function () {
   renderFilesGrid();
 });
 
+window.initHomePage = function () {
+  console.log("Home page initialized");
+  renderFilesGrid();
+};
+
 // Also run on window load as a fallback
 window.addEventListener("load", function () {
   console.log("Window loaded, checking files grid...");
