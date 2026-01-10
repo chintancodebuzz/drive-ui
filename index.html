@@ -30,14 +30,152 @@
       </main>
     </div>
 
+    <!-- File Action Modals -->
+    <div id="fileModals" style="display: none">
+      <!-- File Information Modal -->
+      <div id="fileInfoModal" class="file-modal">
+        <div class="modal-overlay" data-modal="fileInfoModal"></div>
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3>File Information</h3>
+            <button class="modal-close" data-modal="fileInfoModal">
+              &times;
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="file-info-content">
+              <div class="file-icon-large">
+                <img
+                  src="../assets/images/mydrive/word.svg"
+                  alt="file icon"
+                  id="modalFileIcon"
+                />
+              </div>
+              <div class="file-details-modal">
+                <div class="detail-row">
+                  <span class="detail-label">File Name:</span>
+                  <span class="detail-value" id="modalFileName"
+                    >Project Brief.docx</span
+                  >
+                </div>
+                <div class="detail-row">
+                  <span class="detail-label">Category:</span>
+                  <span class="detail-value" id="modalFileCategory">Work</span>
+                </div>
+                <div class="detail-row">
+                  <span class="detail-label">Type:</span>
+                  <span class="detail-value" id="modalFileType">Document</span>
+                </div>
+                <div class="detail-row">
+                  <span class="detail-label">Size:</span>
+                  <span class="detail-value" id="modalFileSize">5 MB</span>
+                </div>
+                <div class="detail-row">
+                  <span class="detail-label">Uploaded:</span>
+                  <span class="detail-value" id="modalFileUploaded"
+                    >25 Dec, 2025</span
+                  >
+                </div>
+                <div class="detail-row">
+                  <span class="detail-label">Modified:</span>
+                  <span class="detail-value" id="modalFileModified"
+                    >30 Dec, 2025</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button class="btn-secondary" data-modal="fileInfoModal">
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Rename Modal -->
+      <div id="renameModal" class="file-modal">
+        <div class="modal-overlay" data-modal="renameModal"></div>
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3>Rename File</h3>
+            <button class="modal-close" data-modal="renameModal">
+              &times;
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="rename-content">
+              <div class="file-icon-small">
+                <img
+                  src="../assets/images/mydrive/word.svg"
+                  alt="file icon"
+                  id="renameFileIcon"
+                />
+              </div>
+              <div class="rename-input-group">
+                <input
+                  type="text"
+                  id="renameInput"
+                  class="rename-input"
+                  placeholder="Enter new file name"
+                />
+                <span class="file-extension" id="renameExtension">.docx</span>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button class="btn-secondary" data-modal="renameModal">
+              Cancel
+            </button>
+            <button class="btn-primary" id="confirmRenameBtn">OK</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Delete Confirmation Modal -->
+      <div id="deleteModal" class="file-modal">
+        <div class="modal-overlay" data-modal="deleteModal"></div>
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3>Delete File</h3>
+            <button class="modal-close" data-modal="deleteModal">
+              &times;
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="delete-content">
+              <div class="warning-icon">⚠️</div>
+              <p>
+                Are you sure you want to delete
+                <strong id="deleteFileName">Project Brief.docx</strong> file?
+              </p>
+              <p class="delete-warning">This action cannot be undone.</p>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button class="btn-secondary" data-modal="deleteModal">
+              Cancel
+            </button>
+            <button class="btn-danger" id="confirmDeleteBtn">
+              Yes, Delete
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Scripts -->
     <script src="assets/scripts/mydrive-data.js"></script>
+    <script src="assets/scripts/file-modals.js"></script>
     <script src="assets/scripts/render-mydrive.js"></script>
     <script>
       // Initialize My Drive when page loads
       document.addEventListener("DOMContentLoaded", function () {
         if (window.initMyDrive) {
           window.initMyDrive();
+        }
+        if (window.FileModals && window.FileModals.init) {
+          window.FileModals.init();
         }
       });
     </script>

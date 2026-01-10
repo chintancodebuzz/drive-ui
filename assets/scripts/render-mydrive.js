@@ -61,6 +61,11 @@ function renderGridView() {
 
   filesContainer.innerHTML = fileCards.join("");
   console.log(`Rendered ${window.mydriveFilesData.length} files in grid view`);
+  
+  // Attach action handlers after rendering
+  if (window.attachFileActionHandlers) {
+    window.attachFileActionHandlers();
+  }
 
   // Add click handlers to file cards that ignore clicks inside file-actions so menus can open normally
   document.querySelectorAll(".file-card").forEach((card) => {
@@ -100,7 +105,6 @@ function renderListView() {
   const tableHTML = `
     <table class="files-table">
       <thead style="background: #2152910A">
-
         <tr>
           <th class="th-name">
             <div class="table-header-cell">
@@ -138,7 +142,6 @@ function renderListView() {
               <div class="file-info-cell">
                 <div class="file-icon-wrapper">
                   <img src="${file.icon}" alt="${file.name}" class="file-icon">
-                 
                 </div>
                 <div class="file-details">
                   <div class="file-name-table">${file.name}</div>
@@ -190,6 +193,11 @@ function renderListView() {
 
   filesContainer.innerHTML = tableHTML;
   console.log(`Rendered ${window.mydriveFilesData.length} files in list view`);
+  
+  // Attach action handlers after rendering
+  if (window.attachFileActionHandlers) {
+    window.attachFileActionHandlers();
+  }
 }
 
 // Function to switch between views
