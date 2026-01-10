@@ -154,8 +154,8 @@
 .nav-link {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 10px 12px;
+  gap: 8px;
+  padding: 5px 5px;
   color: var(--text-secondary);
   text-decoration: none;
   border-radius: 8px;
@@ -210,13 +210,69 @@
 }
 
 .nav-link:hover {
-  background: rgba(255, 255, 255, 0.3);
+  /* Gradient hover per design request */
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 255, 0.04) 0%,
+    rgba(167, 167, 251, 0.45) 100%
+  );
+  color: var(--primary);
+  font-weight: 700;
+  width: 260;
+  height: 48;
+  angle: 0 deg;
+  opacity: 1;
+  gap: 8px;
+  border-top-right-radius: 100px;
+  border-bottom-right-radius: 100px;
 }
 
 .nav-link.active {
-  background: rgba(255, 255, 255, 0.5);
-  color: var(--text-primary);
-  font-weight: 600;
+  /* Active has slightly stronger gradient */
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 255, 0.04) 0%,
+    rgba(167, 167, 251, 0.45) 100%
+  );
+  color: var(--primary);
+  font-weight: 700;
+  width: 260;
+  height: 48;
+  angle: 0 deg;
+  opacity: 1;
+  gap: 8px;
+  border-top-right-radius: 100px;
+  border-bottom-right-radius: 100px;
+  /* padding: 14px; */
+}
+
+/* Tint icons to primary color on hover/active. Uses filters to approximate tinting for PNG/SVG images. */
+.nav-link:hover img,
+.nav-link.active img {
+  /* Make icon monochrome and apply a tint towards primary */
+  filter: grayscale(1) brightness(0) sepia(1) saturate(6000%) hue-rotate(210deg)
+    brightness(1.05);
+}
+
+/* Also add a subtle circular highlight behind the icon */
+.nav-link:hover .icon-bg,
+.nav-link.active .icon-bg {
+  /* display: inline-block;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  margin-right: 8px;
+  background: linear-gradient(90deg, rgba(0, 0, 255, 0.06) 0%, rgba(167, 167, 251, 0.18) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center; */
+  filter: brightness(0) saturate(100%) invert(10%) sepia(95%) saturate(5839%)
+    hue-rotate(245deg) brightness(100%) contrast(150%);
+}
+
+/* Ensure existing layout keeps aligned when .icon-bg is present */
+.nav-link img {
+  display: block;
 }
 
 .nav-link i {
@@ -310,6 +366,7 @@
   font-weight: 600;
   /* margin-top: 4px; */
   font-size: 11px;
+  max-width: 295px;
 }
 /* ===== Storage Header (ONLY HEADER UPDATED) ===== */
 
@@ -334,12 +391,13 @@
 
 .storage-info {
   flex: 1;
-  max-width: 420px;
+  max-width: 295px;
 }
 
 .storage-text {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 12px;
   margin-bottom: 4px;
 }
